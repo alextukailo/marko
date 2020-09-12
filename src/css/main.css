@@ -371,7 +371,7 @@ table {
 	right: 0;
 	background: #ffffff;
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	/* border: 1px solid #A3ACC2; */
 	margin-top: 5px;
 	max-height: 205px;
@@ -406,8 +406,8 @@ table {
     list-style-type: none;
 }
   .select__list .select__item:hover {
-	background-color: rgba(224, 229, 231, 0.5);
-	color: #000000;
+	background-color: #ee1c25;
+	color: #ffffff;
   }
 
 /* reset end */
@@ -854,7 +854,7 @@ figure.zoom {
 
   .select__lit {
 	position: absolute;
-    top: 22px;
+    top: 15px;
   }
 
 .booking__heading {
@@ -1091,13 +1091,14 @@ figure.zoom {
 
 .sortbar__items {
 	display: flex;
-
+	flex-wrap: wrap;
 }
 
 .pagination__wrap {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .sidebar {
@@ -1142,7 +1143,7 @@ figure.zoom {
 	display: flex;
 	align-items: baseline;
 	/* padding: 0 15px; */
-	margin-top: 15px;
+	margin-top: 25px;
 }
 
 .pagination span,
@@ -1163,6 +1164,9 @@ figure.zoom {
 .pagination__item:hover {
 	color: #ee1c25;
 	text-decoration: underline;
+}
+.pagination__item.hide {
+	display: none;
 }
 
 .active.pagination__item a,
@@ -1204,9 +1208,21 @@ figure.zoom {
 }
 
 @media(max-width: 639px) {
+	.select__lit {
+		position: absolute;
+		top: 22px;
+		right: -50%;
+		transform: translateX(-50%);
+	}
+
+	.pagination,
+	.pagination__perpage {
+		margin-top: 0px;
+	}
+
 	.catalog__item {width: 50% !important;}
 	.pagination {
-		margin-top: 32px;
+		margin-top: 40px;
 	}
 
 	figure.zoom img {
