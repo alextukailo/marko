@@ -16,7 +16,7 @@ function getVals() {
 	}
   
 	var displayElement = parent.getElementsByClassName("rangeValues")[0];
-	displayElement.innerHTML = "Цена: " + slide1 + " б.р. - " + slide2 + " б.р.";
+	displayElement.innerHTML = "Высота каблука: " + slide1 + "  - " + slide2 + " ";
   }
   
   window.onload = function () {
@@ -82,7 +82,7 @@ $(".outlet-carousel").owlCarousel({
                 smartSpeed: 700,
                 autoplay: true,
                 navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-                responsive: { 0: { items: 2 }, 768: { items: 3 }, 1024: { items: 7 } },
+                responsive: { 0: { items: 3 }, 768: { items: 3 }, 1024: { items: 7 } },
             })
  
 

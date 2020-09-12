@@ -364,6 +364,7 @@ table {
   }
   .select__list {
 	display: none;
+	width: 185px;
 	position: absolute;
 	top: 100%;
 	left: 0;
@@ -760,9 +761,14 @@ figure.zoom {
     object-fit: cover;
   }
   
+  .rangeValues {
+	  font-size: 14px;
+	  margin-bottom: 10px;
+  }
+
   .range-slider {
 	position: relative;
-	width: 300px;
+	width: 200px;
   /*   float: left; */
 	text-align: center;
   }
@@ -776,13 +782,14 @@ figure.zoom {
 	background: grey; 
 	box-shadow: inset 0 1px 0 0 #cdc6c6, inset 0 -1px 0 0 #d9d4d4;
 	-webkit-box-shadow: inset 0 1px 0 0 #cdc6c6, inset 0 -1px 0 0 #d9d4d4;
-	overflow: hidden;
+	/* overflow: hidden; */
 	left: 0;
 	top: 30px;
-	width: 300px;
+	width: 200px;
 	outline: none;
 	height: 5px;
 	margin: 0;
+	margin-top: 3px;
 	padding: 0;
   }
   .range-slider input[type="range"]::-webkit-slider-thumb {
@@ -844,7 +851,11 @@ figure.zoom {
   .range-slider input[type=range]::-moz-focus-outer {
 	border: 0;
   }
-  
+
+  .select__lit {
+	position: absolute;
+    top: 22px;
+  }
 
 .booking__heading {
 	font-size: 4.8rem;
@@ -1178,11 +1189,19 @@ figure.zoom {
 }
 
 @media(max-width: 639px) {
+	.catalog__item {width: 50% !important;}
+	.pagination {
+		margin-top: 32px;
+	}
+
 	figure.zoom img {
 		height: 225px !important;
 	}
 	.sidebar {
 		display: none;
+	}
+	.catalog__page {
+		padding: 0;
 	}
 	.catalog__main {
 		padding: 0px !important;
