@@ -1,0 +1,2897 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+html
+	font-size: 62.5%
+
+	// блокировка скролла
+	&.css-scroll-fixed:not(.open-only-mob)
+		+scroll-blocked
+
+	&.css-scroll-fixed.open-only-mob
+		+media('<desk-sm')
+			+scroll-blocked
+
+/* user form
+.user-form
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+	.form-title
+		display: block
+		+font-alt-bold
+		color: $title-color
+		text-align: center
+		margin-bottom: $bottom-space
+
+		// font size
+		&
+			+font-h2
+
+	form
+		display: block
+
+	.input-wrap
+		&:last-child
+			margin-bottom: 0
+
+	textarea
+		height: 130px
+		max-height: 130px
+		resize: none
+
+	.form-buttons
+		float: left
+		margin-right: 30px
+
+		+media('<mob-lg')
+			float: none
+			margin: 0
+
+		[class*="btn-"]
+			+media('<mob-lg')
+				display: block
+				width: 100%
+				margin-top: $bottom-space--row
+
+				&:first-child
+					margin-top: 0
+
+	.form-note
+		overflow: hidden
+		min-height: $btn-height
+		+clear-spacing
+		line-height: 25px
+
+		&::before
+			content: ''
+			display: inline-block
+			vertical-align: middle
+			min-height: inherit
+
+	.form-note__item
+		display: inline-block
+		vertical-align: middle
+		width: calc(100% - 6px)
+		+font($font-size--small, $line-height--small)
+		letter-spacing: $letter-spacing
+
+/* user form end
+
+/* slider
+.swiper-container, .swiper-pagination, .slider-arrows
+	opacity: 0
+	// transition
+	$prop: opacity
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+
+	.is-loaded &, &.is-loaded, .no-js &
+		opacity: 1
+
+.swiper-container, .swiper-pagination-bullet, .slider-arrows
+	pointer-events: none
+
+	.is-loaded &, &.is-loaded, .no-js &
+		pointer-events: auto
+
+// slider arrows
+.slider-arrows
+	height: 0
+	position: absolute
+	width: 100%
+	left: 0
+	bottom: 100%
+	margin-bottom: $bottom-space--article
+	pointer-events: none
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--article--md
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--article--mob
+		display: none
+
+.slider-arrows__holder
+	position: relative
+
+.slider-arrow
+	position: absolute
+	top: 50%
+	+size(nth($slider-button-size, 2), nth($slider-button-size, 1))
+	margin-top: -#{round(nth($slider-button-size, 2)/2)}
+	color: $base-color
+	will-change: transform
+	//background: rgba(91, 255, 176, 0.51)
+	// для тестирования, чтобы видеть контуры кнопки
+	//background: none
+	z-index: 5
+	cursor: pointer
+	user-select: none
+	-webkit-tap-highlight-color: transparent
+
+	.slider-arrows &
+		left: auto
+		top: auto
+		bottom: 0
+		pointer-events: auto
+		margin: round((50 - nth($slider-button-size, 1))/2) 0
+
+		+media('<desk-sm')
+			margin: round((38 - nth($slider-button-size, 1))/2) 0
+
+		+media('<mob-sm')
+			margin: round((30 - nth($slider-button-size, 1))/2) 0
+
+	svg
+		display: block
+		position: absolute
+		left: 50%
+		top: 50%
+		width: $slider-arrow-size
+		height: $slider-arrow-size
+		margin: -#{round($slider-arrow-size/2)} 0 0 -#{round($slider-arrow-size/2)}
+		// transition
+		$prop: opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+		+media('<desk-sm')
+			width: $slider-arrow-size--mob
+			height: $slider-arrow-size--mob
+			margin: -#{round($slider-arrow-size--mob/2)} 0 0 -#{round($slider-arrow-size--mob/2)}
+
+
+		& + svg
+			opacity: 0
+
+	path
+		fill: currentColor
+
+// prev arrow
+.slider-arrow_prev
+	left: 0
+
+	.slider-arrows &
+		right: nth($slider-button-size, 2)
+
+// next arrow
+.slider-arrow_next
+	right: 0
+
+	.slider-arrows &
+		right: 0
+
+// hover, disabled, active
+.slider-arrow
+
+	// hover
+	&:not(.swiper-button-disabled):hover
+		svg
+			& + svg
+				opacity: 1
+
+	// active
+	&:not(.swiper-button-disabled):active
+		svg
+			transform: translate(0, 1px)
+
+	// disabled
+	&.swiper-button-disabled
+		pointer-events: auto
+		cursor: default
+		opacity: 0.33
+
+
+/* slider pagination
+$slider-pag-size: 10px 10px // h w
+
+.swiper-pagination
+	pointer-events: none
+
+.swiper-pagination-bullet
+	display: inline-block
+	vertical-align: top
+	+size(#{nth($slider-pag-size, 2)}, #{nth($slider-pag-size, 1)})
+	border-radius: 0
+	border: 1px solid currentColor
+	color: $base-color
+	opacity: 1
+	transform: skew($skew, 0)
+	margin: 4px
+	pointer-events: auto
+
+	background: none
+
+.swiper-pagination-bullet-active
+	background-color: currentColor
+
+/* slider end
+/* tape-slider
+.tape-slider
+	position: relative
+	margin-bottom: $bottom-space--article
+
+	background: url(../../img/preloader.svg) no-repeat center
+	background-size: 40px
+
+	&.is-loaded
+		background-image: none
+
+	+media('<desk-sm')
+		+padding-horizontal(nth($page-layout-space--md, 2))
+		margin-bottom: $bottom-space--article--md
+
+	+media('<mob-lg')
+		+padding-horizontal(nth($page-layout-space--mob, 2))
+		margin-bottom: $bottom-space--article--mob
+
+	&:last-child
+		margin-bottom: 0
+
+	.swiper-container
+		+media('>=desk-sm')
+			border: 1px solid $border-color
+			margin-left: -2px
+			margin-right: -1px
+
+	.swiper-slide
+		//border: 0 solid $border-color
+		//border-left-width: 1px
+		background-color: $bg-color-alt
+
+		+media('<desk-sm')
+			//border-width: 1px
+
+	.swiper-pagination
+		margin-top: $bottom-space--article
+		position: relative
+		line-height: 0
+
+		+media('<desk-sm')
+			margin-top: $bottom-space--article--md
+
+		+media('<mob-lg')
+			margin-top: $bottom-space--article--mob
+
+/* tape-slider end
+
+///* breadcrumbs
+//.breadcrumbs
+	color: $text-color-light
+	margin-bottom: $bottom-space--large
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--middle
+
+	&:last-child
+		margin-bottom: 0
+
+//.breadcrumbs__list
+	&, .#{$user-content} &
+		padding: 0
+		margin: 0
+		list-style: none
+
+		li
+			padding: 0 6px 0 0
+			margin: 0
+
+			&::before, &:first-child::before
+				content: none
+
+	cursor: default
+	overflow: hidden
+	+font($font-size--small, $line-height--small)
+
+	.layout-article &
+		max-width: none
+
+	li
+		display: inline
+		position: relative
+
+		&::after
+			display: inline-block
+			vertical-align: baseline
+			content: '•'
+			border: none
+			color: $base-color
+			padding-left: 10px
+
+		&:last-child::after
+			content: none
+
+	a
+		padding-top: 0.5em
+		color: $text-color
+		text-decoration: none
+		cursor: pointer
+
+		span
+			border-bottom: 1px solid rgba(white, 0.3)
+
+		.no-touchevents &:hover
+			color: $base-color
+
+			span
+				border-color: rgba($base-color, 0.3)
+
+///* breadcrumbs end
+
+///* files links
+//.file
+	$file-icon-size: 42px
+	+display-inline-block-top
+	min-height: $file-icon-size
+	padding: 0.5em
+	+font(16px, 20px)
+	color: $text-color
+	text-decoration: none
+
+	+clear
+
+	svg
+		float: left
+		+size($file-icon-size)
+
+	& > span, & > em
+		display: block
+		margin-left: #{$file-icon-size}
+		padding-left: 1em
+
+	& > em
+		display: block
+		font-size: 1.4rem
+		color: $text-color-light
+
+	.no-touchevents &:hover
+		background-color: $base-color
+
+		& > em
+			color: $bg-color
+
+//.st-bg
+	fill: #e2e5e7
+
+//.st-corner
+	fill: #b0b7bd
+
+//.st-shadow
+	fill: #cad1d8
+
+//.st-text
+	fill: #fff
+
+///* files links end
+
+///* feature list
+//.feature-list
+	margin-bottom: $bottom-space--medium
+
+	&:last-child
+		margin-bottom: 0
+
+//.feature-list__item
+	margin-bottom: $bottom-space
+	+clear
+
+	&:last-child
+		margin-bottom: 0
+
+//.feature-list__img
+	float: left
+	width: 25%
+	margin: 0.3em $bottom-space $bottom-space--small 0
+
+	+media("<mob-lg")
+		width: auto
+		float: none
+		margin-right: 0
+
+//.feature-list__content
+	overflow: hidden
+
+	h3, p
+		margin-bottom: $bottom-space--small
+
+		&:last-child
+			margin-bottom: 0
+
+///* feature list end
+
+/* product labels
+.i
+	svg
+		$size: 20px
+		display: block
+		position: absolute
+		left: 50%
+		top: 50%
+		width: $size
+		height: $size
+		margin: -#{round($size/2)} 0 0 -#{round($size/2)}
+
+		path
+			fill: currentColor
+
+.prod__labels
+	position: relative
+
+.prod__label
+	$size: 34px
+
+	display: block
+	+size($size)
+	border-radius: round($size/2)
+	color: white
+	text-indent: -9999px
+	overflow: hidden
+	background-color: $base-color
+	background-repeat: no-repeat
+	background-position: center
+	background-size: 16px auto
+
+	+media('<mob-lg')
+		$size: 26px
+		+size($size)
+		border-radius: round($size/2)
+		background-size: 14px auto
+
+	& ~ .prod__label
+		margin-top: 10px
+
+.prod__label--new
+	background-image: url(../../img/icon-new.svg)
+	background-size: 20px auto
+
+	+media('<mob-lg')
+		background-size: 18px auto
+
+.prod__label--hit
+	background-image: url(../../img/icon-like.svg)
+
+.prod__label--share
+	background-image: url(../../img/icon-act.svg)
+
+.prod__label--sale
+	background-image: url(../../img/icon-sale.svg)
+	background-size: 14px auto
+
+	+media('<mob-lg')
+		background-size: 12px auto
+
+/* product labels end
+
+/* product item
+.prod
+	position: relative
+	display: block
+	height: 100%
+	text-decoration: none
+	overflow: hidden
+	color: inherit
+
+a.prod__inner
+	display: block
+	height: 100%
+	min-height: 150px
+	padding: nth($products-grid-space, 1) nth($products-grid-space, 2) 80px
+	text-decoration: none
+	color: inherit
+
+	+media('<desk-sm')
+		padding: nth($products-grid-space--md, 1) nth($products-grid-space--md, 2) 70px
+
+	+media('<mob-lg')
+		padding: nth($products-grid-space--mob, 1) nth($products-grid-space--mob, 2) 70px
+
+.prod__labels
+	position: absolute
+	left: nth($products-grid-space, 2)
+	top: nth($products-grid-space, 2)
+	z-index: 1
+
+	+media('<desk-sm')
+		left: nth($products-grid-space--md, 2)
+		top: nth($products-grid-space--md, 2)
+
+	+media('<mob-lg')
+		left: nth($products-grid-space--mob, 2)
+		top: nth($products-grid-space--mob, 2)
+
+.prod__figure
+	position: relative
+	max-width: 240px // ограничиваем ширину изображения продукта
+	padding: 0
+	margin: 0 auto $bottom-space--element
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--element--md
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--element--mob
+
+	&:last-child
+		margin-bottom: 0
+
+	&:before
+		content: ""
+		display: block
+		+ratio(1, 1)
+
+	img
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		max-width: none
+		+object-fit(scale-down)
+
+.prod__code, .prod__title
+	display: block
+	+font-normal
+	+font(18px, round-float(24/18, 2))
+	letter-spacing: 0.1em
+	text-align: center
+	max-width: 260px
+	margin: 0 auto
+
+	+media('<desk-sm')
+		+font(16px, round-float(19/16, 2))
+		letter-spacing: 0.05em
+		margin-bottom: 5px
+
+.prod__code
+	color: $text-color-light
+
+.prod__title
+	+font-bold
+	margin-bottom: 0.5em
+
+	&:last-child
+		margin-bottom: 0
+
+// info (show hover)
+.prod__info
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	z-index: 5
+	pointer-events: none
+
+.prod__body
+	//position: absolute
+	//width: 100%
+	//left: 50%
+	//top: 50%
+	height: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	padding: nth($products-grid-space, 1) nth($products-grid-space, 2) 140px
+	//transform: translate(-50%, -50%)
+
+	+media('<desk-sm')
+		padding: nth($products-grid-space--md, 1) nth($products-grid-space--md, 2) 140px
+
+	+media('<mob-lg')
+		padding: nth($products-grid-space--mob, 1) nth($products-grid-space--mob, 2) 140px
+
+// list of characteristics
+.prod__dl-list
+	margin-bottom: $bottom-space--element
+	font-size: 1.8rem
+	line-height: round-float(22/18, 2)
+	text-align: center
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--element--md
+		font-size: 1.6rem
+		line-height: round-float(18/16, 2)
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--element--mob
+
+	&:last-child
+		margin-bottom: 0
+
+.prod__dl-list__di
+	position: relative
+	margin-top: 14px
+
+	+media('<desk-sm')
+		margin-top: 6px
+
+.prod__dl-list__dt
+	display: block
+	color: $text-color-light
+
+	+media('<desk-sm')
+		font-size: 1.4rem
+
+// footer
+.prod__foot
+	position: absolute
+	left: 0
+	bottom: 0
+	width: 100%
+	padding: 0 10px nth($products-grid-space, 1)
+	z-index: 5
+
+	//+media('<desk-sm')
+		padding-bottom: nth($products-grid-space--md, 1)
+
+	+media('<mob-lg')
+		padding-bottom: nth($products-grid-space--mob, 1)
+		bottom: auto
+		top: 100%
+		margin-top: -65px
+
+// price
+.prod__price
+	text-align: center
+	line-height: 24px
+
+	.no
+		+font-black
+		font-size: 24px
+
+		+media('<desk-sm')
+			font-size: 20px
+
+.prod__price__cur,
+.prod__price__old
+	position: relative
+	display: inline-block
+	+margin-horizontal(7px)
+
+	+media('<mob-lg')
+		display: block
+		+margin-horizontal(0)
+
+.prod__price__cur__val
+	+font-black
+	font-size: 24px
+
+	+media('<desk-sm')
+		font-size: 20px
+
+.prod__price__old
+	color: $base-color
+	text-decoration: line-through
+
+	&::before
+		content: "/ "
+		color: $text-color
+		display: block
+		position: absolute
+		right: 100%
+		top: 0
+		margin-right: 5px
+
+		+media('<mob-lg')
+			display: none
+
+.prod__price__old__val
+	+font-normal
+
+// add info
+.prod__add-info
+	position: absolute
+	left: 0
+	bottom: 0
+	width: 100%
+	padding: 0 nth($products-grid-space, 2)  nth($products-grid-space, 1)
+	z-index: 5
+
+	//+media('<desk-sm')
+		padding: 0 nth($products-grid-space--md, 2)  nth($products-grid-space--md, 1)
+
+	+media('<mob-lg')
+		padding: 0 nth($products-grid-space--mob, 2)  30px
+
+// Hover animation. Only no-touch
+
+.prod
+	$animation-speed: 0.53s
+	$animation-elements: ".prod__labels, .prod__figure, .prod__dl-list__di, .prod__code, .prod__title, .prod__foot, .prod__add-info"
+
+	#{$animation-elements}
+		// transition
+		$prop: transform, opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+	.prod__dl-list__di
+		opacity: 0
+		$x: -50px
+		$y: 0
+		transform: translate($x, $y)
+		transform: translate3d($x, $y, 0)
+
+		@for $i from 1 through 4
+			&:nth-child(#{$i + 1})
+				transition:
+					delay: 0.05s * $i
+
+	.prod__foot
+		pointer-events: none
+
+	.prod__add-info
+		opacity: 0
+		pointer-events: none
+		$x: 0
+		$y: 50px
+		transform: translate($x, $y)
+		transform: translate3d($x, $y, 0)
+
+	// hover
+	.no-touchevents &:hover
+		$animation-speed: 0.35s
+		#{$animation-elements}
+			transition-duration: $animation-speed
+
+		.prod__labels
+			opacity: 0
+
+		.prod__figure
+			opacity: 0.1
+			$scale: 0.88
+			transform: scale($scale)
+			transform: scale3d($scale, $scale, 1)
+
+		.prod__info
+			pointer-events: auto
+
+		.prod__dl-list__di
+			opacity: 1
+			$x: 0
+			$y: 0
+			transform: translate($x, $y)
+			transform: translate3d($x, $y, 0)
+
+		.prod__code,
+		.prod__title
+			opacity: 0
+			$x: 0
+			$y: -50px
+			transform: translate($x, $y)
+			transform: translate3d($x, $y, 0)
+
+		.prod__foot
+			$x: 0
+			//$y: -120px
+			$y: -70px
+			transform: translate($x, $y)
+			transform: translate3d($x, $y, 0)
+
+		.prod__add-info
+			opacity: 1
+			$x: 0
+			//$y: -20px
+			$y: 0
+			transform: translate($x, $y)
+			transform: translate3d($x, $y, 0)
+
+			[class*="btn-"]
+				pointer-events: auto
+
+/* product item end
+
+/* products list
+.main-section--products
+	overflow: hidden
+
+.products
+	overflow: hidden
+	margin-bottom: $bottom-space--article
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--article--md
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--article--mob
+
+	.main-section--products &
+		margin-left: -2px
+		margin-right: -2px
+
+	&:last-child
+		margin-bottom: 0
+
+.products__list
+	display: flex
+	flex: 0 1 auto
+	justify-content: stretch
+	flex-flow: row wrap
+	+clear-spacing
+
+.products__item
+	+grid-item(5, nth($products-space, 2), nth($products-space, 1))
+	+font($font-size, $line-height)
+	letter-spacing: $letter-spacing
+
+	//+media('<desk-sm')
+	+media('<1550px')
+		+grid-item-responsive(4, nth($products-space, 2), nth($products-space, 1))
+
+	//+media('<tab-sm')
+	+media('<1150px')
+		+grid-item-responsive(3, nth($products-space, 2), nth($products-space, 1))
+
+	//+media('<mob-lg')
+	+media('<865px')
+		+grid-item-responsive(2, nth($products-space, 2), nth($products-space, 1))
+
+	// Оставить 5 елементов
+	// Остальные скрыть
+	.main-section--products &
+		&:nth-child(n + 6)
+			display: none
+
+		// Оставить 4 елементов
+		// Остальные скрыть
+		+media('<1550px', '>=1150px')
+			&:nth-child(n + 5)
+				display: none
+
+		// Оставить 6 елементов
+		// Остальные скрыть
+		//+media('<tab-sm', '>=mob-lg')
+		+media('<1150px')
+			&:nth-child(n)
+				display: inline-block
+
+			&:nth-child(n + 7)
+				display: none
+
+		// Оставить 8 елементов
+		// Остальные скрыть
+		//+media('<mob-lg')
+			&:nth-child(n + 9)
+				display: none
+
+// дополнительные бордеры нужны для safari
+// т.к. в этом браузере не поддерживается автовысота во flex-box элементах
+// подходит только, если не нужно делать всю область кликабельной
+.products, .products__list, .products__item
+	position: relative
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		border: 0 solid $border-color
+
+.products
+	padding-right: 1px
+
+	&::before
+		top: 0
+		left: 0
+		+size(0, 9999px)
+		border-left-width: 1px
+
+	&::after
+		left: 0
+		bottom: 0
+		+size(9999px, 0)
+		border-bottom-width: 1px
+
+.products__list, .products__item
+	&::before
+		top: 0
+		left: 0
+		+size(9999px, 0)
+		border-bottom-width: 1px
+
+	&::after
+		right: -1px
+		top: 0
+		+size(0, 9999px)
+		border-right-width: 1px
+
+// дополнительные бордеры нужны для safari END
+/* products list end
+
+/* main sections
+.main-section
+	padding-top: nth($main-section-space-vertical, 1)
+	padding-bottom: nth($main-section-space-vertical, 2)
+
+	+media('<desk-sm')
+		padding-top: nth($main-section-space-vertical--md, 1)
+		padding-bottom: nth($main-section-space-vertical--md, 2)
+
+	+media('<mob-lg')
+		padding-top: nth($main-section-space-vertical--mob, 1)
+		padding-bottom: nth($main-section-space-vertical--mob, 2)
+
+.main-section__heading
+	position: relative
+	margin-bottom: $bottom-space--article
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--article--md
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--article--mob
+
+	h1, h2, h3
+		+font-normal
+		color: $text-color
+
+		&
+			+font-h1
+
+		& > span
+			display: inline-block
+			vertical-align: top
+			position: relative
+
+			&::after
+				+media('>=desk-sm')
+					content: ""
+					display: block
+					position: absolute
+					left: 100%
+					bottom: 10px
+					width: 100px
+					height: 2px
+					background-color: currentColor
+					margin-left: 20px
+
+/* main sections end
+
+/* main enter
+.main-enter
+	position: relative
+	overflow: hidden
+	margin-bottom: nth($main-section-space-vertical, 2)
+	background-color: rgba($img-mask-bg, 0.5)
+
+	+media('<desk-sm')
+		//margin-bottom: nth($main-section-space-vertical--md, 2)
+		margin-bottom: 0
+
+	&:last-child
+		margin-bottom: 0
+
+/* main enter end
+
+/* promo slider
+.main-section--promo
+	height: calc(100vh - #{$header-height} - #{$nav-height})
+	min-height: 400px
+	padding-top: 0
+	padding-bottom: 0
+
+	+media('<desk-ml')
+		height: calc(100vh - #{$header-height--md} - #{$nav-height})
+
+	+media('<desk-sm')
+		//height: calc(100vh - #{$header-height--sm})
+		//height: 575px
+		position: relative
+		height: auto
+		min-height: 0
+
+	//+media('<tab-lg')
+		height: 385px
+
+	//+media('<mob-lg')
+		height: 192px
+
+	&::before
+		content: ""
+		display: none
+		+ratio(192, 82)
+
+		+media('<desk-sm')
+			display: block
+
+		+media('<mob-lg')
+			display: none
+
+.promo-slider
+	//width: 600px
+	height: 100%
+	//background-color: $bg-color-alt
+	color: white
+	border-top: 1px solid $border-color
+
+	+media('<desk-sm')
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+
+	+media('<mob-lg')
+		position: relative
+		left: auto
+		top: auto
+		width: auto
+		height: auto
+
+	// arrows, pagination
+	.slider-arrow
+		//top: calc((100% - 25%) / 2)
+		//top: round-float(($hundred-percent - 25) / 2, 2)
+		top: auto
+		bottom: 140px
+		color: white
+		+size(nth($slider-promo-button-size, 2), nth($slider-promo-button-size, 1))
+		//margin-bottom: -#{round(nth($slider-promo-button-size, 1)/2)}
+		margin-bottom: 60px
+
+		+media('<desk-sm')
+			//top: calc(100% / 2)
+			bottom: auto
+			top: round-float($hundred-percent / 2, 2)
+			+size(nth($slider-promo-button-size--mob, 2), nth($slider-promo-button-size--mob, 1))
+			margin-bottom: 0
+			margin-top: -#{round(nth($slider-promo-button-size--mob, 1)/2)}
+
+		+media('<mob-lg')
+			display: none
+
+		&::before, &::after
+			content: ""
+			display: block
+			position: absolute
+			width: 100%
+			height: 100%
+			left: 0
+			top: 0
+			background-color: $base-color
+			z-index: -1
+
+		&::after
+			transform: skew($skew, 0)
+
+	.slider-arrow_prev
+		&::after
+			transform-origin: bottom right
+
+	.slider-arrow_next
+		&::after
+			transform-origin: top left
+
+	.swiper-pagination
+		line-height: 0
+		//bottom: 25%
+		bottom: 140px
+		margin-bottom: 3rem
+
+		+media('<desk-ml')
+			margin-bottom: 2rem
+
+		+media('<desk-sm')
+			bottom: 0
+			//margin-bottom: 2rem
+
+		//+media('<desk-sm')
+			margin-bottom: $bottom-space--article--mob
+
+	.swiper-pagination-bullet
+		vertical-align: top
+		//color: white
+
+.promo-slider__item
+	display: flex
+	flex-direction: column
+	text-align: center
+	justify-content: center
+	align-items: center
+	position: relative
+	//padding-bottom: $parts-height
+	//padding-bottom: 25%
+	overflow: hidden
+
+	+image-mask
+
+	+media('<desk-sm')
+		+padding-horizontal(nth($slider-promo-button-size--mob, 2) + 50)
+
+	+media('<mob-lg')
+		//+padding-horizontal(nth($page-layout-space--mob, 2))
+		padding: 0
+		display: block
+
+	&::after
+		position: relative
+		content: ""
+		display: block
+		width: 100%
+		//height: 25%
+		height: 140px
+		pointer-events: none
+		z-index: -1
+
+		+media('<desk-sm')
+			display: none
+
+.promo-slider__item__img
+	position: absolute
+	+size(100%)
+	+position(0)
+	background-color: $bg-color-alt
+	z-index: -2
+
+	img
+		display: block
+		+size(100%)
+		max-width: none
+		+object-fit(cover)
+
+		+media('<mob-lg')
+			height: auto
+
+	&.for-mob
+		display: none
+
+	+media('<mob-lg')
+		&
+			position: relative
+			left: auto
+			top: auto
+			width: auto
+			height: auto
+			display: none
+
+			&.for-mob
+				display: block
+
+.promo-slider__item__content
+	position: relative
+	display: block
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	color: inherit
+	text-decoration: none
+	//width: 960px
+	width: 100%
+	max-width: 100%
+	text-align: center
+	flex-grow: 1
+
+	//+media('<desk-ml')
+		width: 800px
+
+	//+media('<tab-lg')
+		width: 480px
+
+	+media('<mob-lg')
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		+padding-horizontal(nth($page-layout-space--mob, 2))
+
+.promo-slider__item__title
+	$font-size: 60px
+	$line-height: 70px
+	$font-size--md: 56px
+	$line-height--md: 62px
+	$font-size--sm: 48px
+	$line-height--sm: 58px
+	$font-size--tab: 30px
+	$line-height--tab: 36px
+	$font-size--mob: 18px
+	$line-height--mob: 22px
+	// ===============
+	display: block
+	overflow: hidden
+	max-height: round($line-height*3) // maximum 3 line
+	margin-left: auto
+	margin-right: auto
+	//margin-bottom: 5rem
+	//+font-black
+	+font-semibold
+	+font($font-size, $line-height)
+	letter-spacing: normal
+	text-align: center
+	width: 960px
+	max-width: 100%
+
+	+media('<desk-lg')
+		font-size: $font-size--md
+		line-height: $line-height--md
+		max-height: round($line-height--md*3) // maximum 3 line
+
+	+media('<desk-ml')
+		font-size: $font-size--sm
+		line-height: $line-height--sm
+		max-height: round($line-height--sm*3) // maximum 3 line
+		//margin-bottom: 2rem
+		width: 800px
+
+	+media('<tab-lg')
+		font-size: $font-size--tab
+		line-height: $line-height--tab
+		max-height: round($line-height--tab*4) // maximum 4 line
+
+	+media('<mob-lg')
+		font-size: $font-size--mob
+		line-height: $line-height--mob
+		max-height: round($line-height--mob*5) // maximum 5 line
+		width: 480px
+
+	&:last-child
+		margin-bottom: 0
+
+.promo-slider__item__footer
+	position: absolute
+	left: 0
+	//bottom: 9rem
+	bottom: 8rem
+	width: 100%
+
+	+media('<desk-ml')
+		bottom: 5rem
+
+	+media('<tab-lg')
+		display: none
+
+	.more-link
+		+display-inline-block-top
+		text-decoration: none
+		color: inherit
+
+		span
+			+display-inline-block-top
+			line-height: 1.5
+			border-bottom: 2px solid
+
+		&:hover
+			color: $base-color
+
+			span
+				border-color: $base-color
+
+	.btn-default-alt
+		color: $text-color
+
+.slider-progress
+	display: block
+	position: absolute
+	left: 0
+	//bottom: 25%
+	bottom: 0
+	height: 3px
+	width: 100%
+	background-color: rgba(white, 0.25)
+	z-index: 5
+
+	+media('<desk-sm')
+		display: none
+
+	.progress
+		position: absolute
+		left: -100%
+		top: 0
+		width: 100%
+		//width: 0
+		height: 100%
+		background-color: $base-color
+		will-change: transform
+
+/* promo slider end
+
+/* parts
+$width: 25%
+
+.main-section--parts
+	position: relative
+	padding-top: 0
+	padding-bottom: 0
+
+	.main-enter &
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+
+		+media('>=desk-sm')
+			position: absolute
+			width: 100%
+			height: 100%
+			left: 0
+			bottom: 0
+			z-index: 5
+			pointer-events: none
+
+.parts
+	+media('>=desk-sm')
+		height: 25%
+		height: 140px
+		pointer-events: auto
+		box-shadow: inset 0 1px 0 rgba(white, 0.15)
+		background-color: rgba($img-mask-bg, 0.35)
+		//background-image: url(../../img/promo-slider-pattern.png)
+		//background-size: 25% 100%
+		//+linear-gradient(to top, rgba($img-mask-bg, 0.35) 0%, transparent 100%)
+		//+linear-gradient(to top, rgba($base-color, 0.35) 0%, transparent 100%)
+
+.parts__list
+	+media('>=desk-sm')
+		height: 100%
+
+.parts__item
+	float: left
+	//width: calc(100% / 4)
+	width: round-float($hundred-percent / 4, 2)
+
+	+media('>=desk-sm')
+		height: 100%
+		box-shadow: inset 1px 0 0 rgba(white, 0.15)
+
+	+media('<desk-sm')
+		position: relative
+		//width: calc(100% / 2)
+		width: round-float($hundred-percent / 2, 2)
+		z-index: 1
+
+	+media('<mob-md')
+		width: 100%
+
+.parts__item__img
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	z-index: -1
+	opacity: 0
+	pointer-events: none
+	//$y: 20rem
+	//$x: 20rem
+	//transform: translate(0, $y)
+	//transform: translateY($y)
+	// transition
+	$prop: transform, opacity, visibility
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $parts-animation-speed-out
+
+	+media('<desk-sm')
+		opacity: 1
+
+	+image-mask
+
+	img
+		position: relative
+		width: 100%
+		height: 100%
+		max-width: none
+		+object-fit(cover)
+		z-index: -2
+
+.parts__item__thumb
+	position: relative
+	overflow: hidden
+	height: 100%
+	color: white
+	z-index: 10
+
+	&::before
+		+media('>=desk-sm')
+			content: ""
+			display: block
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			z-index: -1
+			background-color: $base-color
+			opacity: 0
+			// transition
+			$prop: opacity, transform
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $parts-animation-speed-out
+				//delay: $parts-animation-speed
+
+		+media('<desk-sm')
+			content: ""
+			display: block
+			pointer-events: none
+			+ratio(435, 186)
+
+		+media('<mob-md')
+			padding: 0
+			height: 100px
+
+	.p1, .p2
+		display: block
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		position: absolute
+		left: 0
+		top: 0
+		height: 100%
+		width: 50%
+		padding: 0 10px
+		z-index: 1
+		//+font-bold
+		+font-semibold
+		color: inherit
+		text-align: center
+		text-decoration: none
+		border: 0 solid rgba(white, 0.25)
+		// transition
+		$prop: opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $parts-animation-speed-out
+
+		+media('<desk-sm')
+			width: 100%
+
+		.t, .l
+			width: 100%
+			// transition
+			$prop: transform
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $parts-animation-speed-out
+
+		.t
+			font-size: 3rem
+			font-size: 2.8rem
+			line-height: round-float(30/30, 2)
+			//letter-spacing: 0.05em
+			letter-spacing: normal
+			margin-bottom: 0.3em
+
+			+media('<desk-lg')
+				font-size: 2.4rem
+
+			+media('<desk-ml')
+				font-size: 2rem
+
+			+media('<desk-sm')
+				font-size: 2.4rem
+
+		.l
+			opacity: 0.5
+			font-size: 1.8rem
+			line-height: round-float(30/18, 2)
+			//letter-spacing: 0.05em
+			letter-spacing: normal
+
+			+media('<desk-ml')
+				+font-normal
+				font-size: 1.6rem
+
+			+media('<desk-sm')
+				opacity: 1
+				font-size: 1.8rem
+
+		svg
+			$width: 40px
+			$height: 20px
+			display: block
+			position: absolute
+			bottom: 20px
+			bottom: 12px
+			left: 50%
+			height: $height
+			width: $width
+			margin-left: -#{round-float($width/2, 2)}
+			opacity: 0
+			$x: -50%
+			transform: translate($x, 0)
+			transform: translateX($x)
+			// transition
+			$prop: transform, opacity
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $parts-animation-speed
+
+			+media('<desk-ml')
+				$width: 30px
+				$height: 15px
+				bottom: 10px
+				height: $height
+				width: $width
+
+			path, polygon
+				fill: currentColor
+
+	.p1
+		+media('>=desk-sm')
+			left: 0
+
+			.t, .l
+				$x: 50%
+				transform: translate($x, 0)
+				transform: translateX($x)
+
+	.p2
+		left: 50%
+		border-left-width: 1px
+		opacity: 0
+		pointer-events: none
+
+		+media('<desk-sm')
+			display: none
+
+		&::before
+			$size: 120px
+			content: ""
+			display: block
+			position: absolute
+			width: $size
+			height: $size
+			background: url(../../img/icon-new.svg) no-repeat
+			background-size: contain
+			opacity: 0.2
+			$x: 50%
+			transform: translate($x, 0)
+			transform: translateX($x)
+			// transition
+			$prop: transform
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $parts-animation-speed-out
+
+		.t, .l
+			$x: 20%
+			transform: translate($x, 0)
+			transform: translateX($x)
+
+	.p1, .p2
+		.no-touchevents &:hover
+			//background-color: #343434
+
+			svg
+				opacity: 1
+				$x: 0
+				transform: translate($x, 0)
+				transform: translateX($x)
+
+.parts__item__prods
+	$space: 30px
+	$space--sm: 15px
+	position: absolute
+	overflow: hidden
+	left: 0
+	//bottom: 25%
+	//height: 75%
+	bottom: 140px
+	height: calc(100% - 140px)
+	z-index: 1
+	width: $width
+	pointer-events: none
+
+	+media('<desk-sm')
+		display: none
+
+	& > ul
+		display: flex
+		flex-direction: column
+		list-style: none
+		margin: 0
+		padding: 0
+		height: 100%
+		background-color: rgba(white, 1)
+		opacity: 0
+		$y: 10rem
+		transform: translate(0, $y)
+		transform: translateY($y)
+		// transition
+		$prop: transform, opacity, visibility
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $parts-animation-speed-out
+
+		&::before
+			$color: black
+			content: ""
+			display: block
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 26px
+			+linear-gradient(to bottom, rgba($color, 0.1) 0%, rgba($color, 0) 100%)
+			opacity: 0
+			pointer-events: none
+			z-index: 5
+			// transition
+			$prop: opacity
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $parts-animation-speed-out
+
+		& > li
+			position: relative
+			flex-grow: 1
+			flex-shrink: 1
+			height: 33.33%
+			max-height: 33.33%
+
+			&::before
+				content: ""
+				display: block
+				position: absolute
+				top: 0
+				left: $space
+				right: $space
+				border-top: 1px solid #e6e6e6
+
+				+media('<desk-ml')
+					left: $space--sm
+					right: $space--sm
+
+			&:first-child
+				&::before
+					content: none
+
+			& > a
+				display: block
+				position: relative
+				height: 100%
+				padding: $space
+				color: inherit
+				text-decoration: none
+
+				@media (max-height: 800px)
+					padding: $space--sm $space
+
+				+media('<desk-ml')
+					padding: $space--sm
+
+				&:hover
+					ul li:nth-child(2)
+						color: $base-color
+
+			.prod__labels
+				position: absolute
+				left: $space
+				top: $space
+
+				+media('<desk-ml')
+					left: $space--sm
+					top: $space--sm
+
+			img
+				float: left
+				width: 34%
+				max-width: 144px
+				margin-right: $space
+
+				+media('<desk-ml')
+					margin-right: $space--sm
+
+	ul ul
+		list-style: none
+		margin: 0
+		padding: 20px 0 0
+		overflow: hidden
+		+font-normal
+		font-size: 1.8rem
+		line-height: 2.4rem
+		color: #000
+
+		@media (max-height: 800px)
+			padding-top: 10px
+
+		+media('<desk-ml')
+			padding-top: 10px
+			font-size: 1.6rem
+			line-height: 2.0rem
+
+		& > li
+			position: relative
+			+truncate(100%)
+
+			&:first-child
+				+font-normal
+				color: #b2b2b2
+
+			&:last-child
+				margin-top: 15px
+				b
+					+font-black
+					font-size: 2.4rem
+
+.parts__item
+	&:nth-child(1)
+		.parts__item__prods
+			left: $width*0
+
+	&:nth-child(2)
+		.parts__item__prods
+			left: $width*1
+
+	&:nth-child(3)
+		.parts__item__prods
+			left: $width*2
+
+	&:nth-child(4)
+		.parts__item__prods
+			left: $width*3
+
+// hover
+.main-enter
+	.main-section--promo
+		// transition
+		$prop: opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+	+media('>=desk-sm')
+		.no-touchevents &:hover
+			.main-section--promo
+				opacity: 0
+
+				&:hover
+					opacity: 1
+
+.parts__item:hover
+	.parts__item__img
+		opacity: 1
+		transition:
+			duration: $parts-animation-speed
+
+	.parts__item__thumb
+		&:before
+			opacity: 1
+			transition:
+				duration: $parts-animation-speed
+				//delay: 0s
+
+		.p1, .p2
+			.t, .l
+				$x: 0
+				transform: translate($x, 0)
+				transform: translateX($x)
+				transition:
+					duration: $parts-animation-speed
+
+		.p2
+			opacity: 1
+			pointer-events: auto
+
+			&::before
+				$x: 0
+				transform: translate($x, 0)
+				transform: translateX($x)
+				transition:
+					duration: $parts-animation-speed
+
+	.parts__item__prods
+		pointer-events: auto
+
+		& > ul
+			opacity: 1
+			$y: 0
+			transform: translate(0, $y)
+			transform: translateY($y)
+			transition:
+				duration: $parts-animation-speed
+				//delay: $parts-animation-speed
+
+			&::before
+				opacity: 1
+
+/* parts end
+
+/* collections
+.collection-slider
+	.swiper-container
+		border: none
+		margin-left: 0
+		margin-right: 0
+
+.main-section--collections
+	overflow: hidden
+
+	+media('<desk-sm')
+		background-color: $bg-color
+
+.collection-slider__item
+	position: relative
+	overflow: hidden
+	display: block
+	display: flex
+	justify-content: stretch
+	align-items: flex-end
+	text-decoration: none
+	//color: white
+	//padding: $grid-space
+	padding-top: 205px
+	+font(1.8rem, 3.0rem)
+	//z-index: 1
+	border: 0 solid $border-color
+	border-width: 1px 1px 0 0
+	//box-shadow: inset 0 0 0 1px $border-color
+
+	&:first-child
+		border-left-width: 1px
+
+	//+media('<desk-sm')
+		padding: $grid-space--md
+
+	+media('<mob-lg')
+		font-size: 1.6rem
+
+	//&:first-child
+		border-left-width: 0
+
+	//.collection-slider &
+		border: none
+
+	a
+		color: inherit
+
+.collection-slider__item-bg
+	//width: 100%
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	//z-index: -1
+	// transition
+	$prop: transform, opacity
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: 4s
+		timing-function: ease-in-out
+
+	//&::before
+		content: ''
+		display: block
+		position: absolute
+		+size(100%)
+		left: 0
+		top: 0
+		background-color: rgba($img-mask-bg, 0.35)
+
+	img
+		display: block
+		+size(100%)
+		max-width: none
+		+object-fit(cover)
+
+.collection-slider__item-inner
+	display: block
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	position: relative
+	width: 100%
+	min-height: 100%
+	padding: 10px 20px 10px
+	text-decoration: none
+	color: white
+	text-align: center
+	//background-color: rgba($base-color, 0.2)
+	background-repeat: no-repeat
+	background-position: 0 0
+	background-size: cover
+
+.collection-slider__item-logo
+	display: inline-block
+	vertical-align: top
+	max-width: calc(100% - 40px)
+	text-align: center
+	//margin-bottom: $bottom-space--element
+	margin-bottom: 10px
+
+	//+media('<desk-sm')
+		margin-bottom: $bottom-space--element--md
+
+	//+media('<mob-lg')
+		margin-bottom: $bottom-space--element--mob
+
+	&:last-child
+		margin-bottom: 0
+
+	img
+		margin: 0 auto
+
+.collection-slider__item-content
+	margin: 0 auto
+	max-width: 350px
+
+.collection-slider__item-title
+	display: none
+	//+font-black
+	+font-bold
+	+font(2.4rem, round-float(30/24, 2))
+	color: inherit
+	text-align: center
+	margin-bottom: $bottom-space--element
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--element--md
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--element--mob
+		font-size: 2.0rem
+
+	&:last-child
+		margin-bottom: 0
+
+// hover
+.collection-slider__item:hover
+	.collection-slider__item-bg
+		transition:
+			duration: 8s
+		transform: scale(1.2) rotate(2deg) translateZ(0)
+
+/* collections end
+
+/* news
+.main-section--news
+	overflow: hidden
+
+	+media('<desk-sm')
+		padding-top: 0
+
+.news-slider
+	margin: 0 auto $bottom-space--article
+	position: relative
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--article--md
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--article--mob
+
+	&:last-child
+		margin-bottom: 0
+
+	.swiper-container
+		overflow: visible
+
+	.swiper-pagination
+		display: flex
+		align-items: center
+		left: 0
+		height: $btn-height
+		position: relative
+		line-height: 0
+		pointer-events: none
+
+		+media('<desk-sm')
+			height: $btn-height--mob
+
+		+media('<mob-lg')
+			display: block
+			height: auto
+			position: relative
+			text-align: center
+
+	// arrows, pagination
+	.slider-arrows,
+	.swiper-pagination
+		position: absolute
+		margin-bottom: 0
+		margin-top: $bottom-space--article
+		top: 100%
+
+		+media('<desk-sm')
+			margin-top: $bottom-space--article--md
+
+		+media('<mob-lg')
+			margin-top: $bottom-space--article--mob
+
+	.slider-arrows
+		bottom: auto
+
+		.slider-arrow
+			bottom: auto
+			top: 0
+
+.news-slider__item
+	padding-right: nth($grid-space, 2)
+
+	+media('<desk-sm')
+		padding-right: nth($grid-space--md, 2)
+
+	//&:nth-child(even)
+		padding-top: 120px
+
+		+media('<desk-sm')
+			padding-top: 0
+
+.news-slider__item__inner
+	display: block
+	position: relative
+	text-decoration: none
+	width: 240px
+	max-width: 100%
+	color: inherit
+
+.news-slider__item__date
+	display: block
+	color: #bfbfbf
+	margin-bottom: $bottom-space--element
+	// transition
+	$prop: transform
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+
+	+media('>=desk-sm')
+		position: absolute
+		left: 0
+		bottom: 0
+		transform-origin: left bottom
+		transform: rotate(-90deg)
+		padding-bottom: 0.4em
+		margin: 0
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--element--md
+
+	+media('<mob-md')
+		font-size: 1.6rem
+		margin-bottom: $bottom-space--element--mob
+
+.news-slider__item__img
+	position: relative
+	margin-bottom: $bottom-space--element
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--element--md
+
+	+media('<desk-sm')
+		margin-bottom: $bottom-space--element--mob
+
+.news-slider__item__title
+	+font-bold
+	+font(2.4rem, round-float(30/24, 2))
+	// transition
+	$prop: color
+	transition:
+		property: $prop
+		duration: $animation-speed
+
+	+media('<desk-sm')
+		+font(2.0rem, round-float(24/20, 2))
+
+	+media('<mob-md')
+		font-size: 1.6rem
+
+// hover
+.news-slider__item__inner
+	&:hover
+		.news-slider__item__title
+			color: $base-color
+
+/* news end
+
+/* subscription form
+.subscribe
+	background-color: #282828
+	color: white
+	+padding-vertical(4rem)
+
+	+media('<tab-lg')
+		+padding-vertical(1.5rem, 2.5rem)
+
+.subs-form
+	$subs-form-size: 50px 100% // h w
+	$subs-form-border-radius: 0
+
+	text-align: left
+
+	.input-wrap
+		display: flex
+		align-items: center
+		margin: 0
+
+		+media('<tab-lg')
+			display: block
+
+	.label-holder
+		width: 50%
+		margin: 0 17px 0 0
+
+		+media('<tab-lg')
+			width: auto
+			margin: 0 0 17px
+			text-align: center
+
+		+media('<mob-lg')
+			text-align: left
+
+	.label-holder, label
+		+font-normal
+		+font(1.8rem, round-float(22/18, 2))
+		color: inherit
+
+		+media('<mob-lg')
+			font-size: 1.6rem
+
+	label
+		b
+			display: block
+			+font-normal
+			+font(3.0rem, round-float(30/30, 2))
+			margin-bottom: 0.2em
+
+	.form-fields
+		width: 50%
+		position: relative
+
+		+media('<tab-lg')
+			width: 600px
+			max-width: 100%
+			+push-auto
+
+		+media('<mob-lg')
+			width: 100%
+			+margin-horizontal(0)
+
+	.input-holder
+		position: relative
+		height: nth($subs-form-size, 1)
+		padding-right: 165px
+		$prop: opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: 0.25s
+
+		+media('<mob-lg')
+			padding-right: $form-input-height
+
+		input
+			height: nth($subs-form-size, 1)
+			font-size: 16px
+			line-height: nth($subs-form-size, 1)
+			padding: 0 20px
+			border-radius: 0
+			border: none
+			margin: 0
+
+			&:-webkit-autofill
+				-webkit-box-shadow: 0 0 0 30px $form-bg-color inset
+
+			&:-webkit-autofill
+				-webkit-text-fill-color: $text-color
+
+	.form-success .input-holder
+		opacity: 0
+		visibility: hidden
+		$scale: 0.76
+		transform: scale($scale)
+		transform: scale3d($scale, $scale, 1)
+		pointer-events: none
+
+	input[type='submit'], button
+		display: inline-block
+		vertical-align: top
+		height: nth($subs-form-size, 1)
+		width: 165px
+		min-width: 0
+		padding: 0 10px
+		position: absolute
+		top: 0
+		right: 0
+		border: none
+		+font-bold
+		font-size: 18px
+		line-height: nth($subs-form-size, 1)
+		letter-spacing: 0.1em
+		text-align: center
+		color: white
+		cursor: pointer
+		box-shadow: none
+		background-color: $base-color
+		border-radius: 0
+
+		+media('<mob-lg')
+			width: $form-input-height
+			overflow: hidden
+
+			&::before
+				content: attr(data-mob)
+				display: block
+				text-indent: 0
+
+	.subs-success
+		position: absolute
+		+position(0)
+		+size(100%)
+		opacity: 0
+		pointer-events: none
+		background-color: $base-color
+		transform: scale(0.76, 0.76) translateZ(0)
+		border-radius: $subs-form-border-radius
+		//text-indent: -9999px
+		//overflow: hidden
+		text-align: center
+		color: white
+		font-size: 16px
+		line-height: nth($subs-form-size, 1)
+
+		transition:
+			property: opacity, visibility, transform
+			duration: 0.25s
+
+		span
+			position: relative
+			display: inline-block
+			vertical-align: top
+			//position: absolute
+			//+position(50%)
+			//+size(24px, 16px)
+			//margin: -8px 0 0 -12px
+
+			&::before, &::after
+				+pseudo()
+				+size(0, 2px)
+				left: 0
+				top: 50%
+				background-color: currentColor
+				$prop: width
+				will-change: $prop
+				transition:
+					property: $prop
+					duration: 0.12s
+					timing-function: linear
+
+			&::before
+				margin: -3px 0 0 -29px
+				transform: rotate(45deg) translateZ(0)
+				transform-origin: 0 8px
+				transition-delay: 0.12s
+
+			&::after
+				transform: rotate(-50deg) translateZ(0)
+				transform-origin: 0 16px
+				margin: -1px 0 0 -8px
+
+	.form-success .subs-success
+		opacity: 1
+		visibility: visible
+		transform: scale(1, 1) translateZ(0)
+
+		span
+			&::before
+				width: 8px
+				transition:
+					delay: 0s
+					timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05)
+
+			&::after
+				width: 16px
+				transition-delay: 0.12s
+
+	.subs-error
+		position: absolute
+		top: 100%
+		left: 0
+		+size(100%, 24px)
+		+font(14px, 24px)
+		color: $form-error-color
+		+truncate(100%)
+		opacity: 0
+		z-index: -1
+		user-select: none
+		pointer-events: none
+
+		transition:
+			property: opacity
+			duration: 0.1s
+
+	.error ~ .subs-error
+		opacity: 1
+
+/* subscription form end
+
+/*======================================================*/
+/* PARTIALS
+/*======================================================*/
+/* === LAYOUT ===
+.max-wrap
+	max-width: $page-layout-width
+
+.layout
+	+push-auto
+
+.layout-space, .layout
+	+padding-horizontal(nth($page-layout-space, 2))
+
+	+media('<desk-sm')
+		+padding-horizontal(nth($page-layout-space--md, 2))
+
+	+media('<mob-lg')
+		+padding-horizontal(nth($page-layout-space--mob, 2))
+
+// выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
+// и их максимальная ширина
+//.layout-article
+	padding: $text-layout-space
+
+	+media('<desk-sm')
+		padding: $text-layout-space--md
+
+	+media('<tab-sm')
+		padding: $text-layout-space--sm
+
+	& > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote, & > .layout-text, .imgc figcaption
+		max-width: $text-layout-width
+		+padding-horizontal(0)
+		+push-auto
+
+	.layout-flood
+		max-width: $flood-layout-width
+		+padding-horizontal(0)
+		+push-auto
+
+		+media('<desk-sm')
+			max-width: $flood-layout-width--md
+
+	// элеметы без отступов по бокам
+	// минусовые маржины по горизонтале имеют значение только внутри .layout-article
+	.layout-full-width, .layout-wide
+
+		+margin-horizontal(-#{nth($text-layout-space, 2)})
+
+		+media('<desk-sm')
+			+margin-horizontal(-#{nth($text-layout-space--md, 2)})
+
+		+media('<tab-sm')
+			+margin-horizontal(-#{nth($text-layout-space--sm, 2)})
+
+// максимальная ширина текстовых элементов на внутренней (текстовой) странице
+.max-wrap-text
+	//max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
+	max-width: $text-layout-width
+
+// выравнивание текстовых элементов на внутренней (текстовой) странице
+// и их максимальная ширина
+.layout-text
+	max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
+	+padding-horizontal(nth($text-layout-space, 2))
+	+push-auto
+
+	+media('<desk-sm')
+		max-width: #{$text-layout-width + (nth($text-layout-space--md, 2))*2}
+		+padding-horizontal(nth($text-layout-space--md, 2))
+
+	+media('<tab-sm')
+		max-width: #{$text-layout-width + (nth($text-layout-space--sm, 2))*2}
+		+padding-horizontal(nth($text-layout-space--sm, 2))
+
+// максимальная ширина альтернативных элементов на внутренней (текстовой) странице
+.max-wrap-flood
+	//max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
+	max-width: $flood-layout-width
+
+	+media('<desk-sm')
+		max-width: $flood-layout-width--md
+
+	+media('<mob-lg')
+		max-width: $flood-layout-width--mob
+
+// выравнивание альтернативных элементов на внутренней (текстовой) странице
+// и их максимальная ширина
+.layout-flood
+	max-width: #{$flood-layout-width + (nth($page-layout-space, 2))*2}
+	+padding-horizontal((nth($page-layout-space, 2)))
+	+push-auto
+
+	+media('<desk-sm')
+		max-width: #{$flood-layout-width--md + (nth($page-layout-space--md, 2))*2}
+		+padding-horizontal((nth($page-layout-space--md, 2)))
+
+	+media('<mob-lg')
+		max-width: #{$flood-layout-width--mob + (nth($page-layout-space--mob, 2))*2}
+		+padding-horizontal((nth($page-layout-space--mob, 2)))
+
+	.layout &
+		+padding-horizontal(0)
+		max-width: $flood-layout-width
+
+		+media('<desk-sm')
+			max-width: $flood-layout-width--md
+
+		+media('<mob-lg')
+			max-width: $flood-layout-width--mob
+
+	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
+		max-width: none
+
+// элеметы с отступами по бокам
+//.layout-wide
+	+padding-horizontal((nth($text-layout-space, 2)))
+
+	+media('<desk-sm')
+		+padding-horizontal((nth($text-layout-space--md, 2)))
+
+	+media('<tab-sm')
+		+padding-horizontal((nth($text-layout-space--sm, 2)))
+
+	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
+		max-width: none
+
+// элеметы без отступов по бокам
+//.layout-full-width
+
+	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
+		max-width: none
+
+// выравнивание по центру блочных элементов
+.push-auto
+	margin-left: auto
+	margin-right: auto
+
+// layout страницы
+.wrapper
+	position: relative
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: stretch
+	margin: 0 auto
+	min-height: 100vh
+	max-width: 100%
+	width: $page-layout-width
+	background-color: $bg-color-alt
+	box-shadow: 0 0 0 1px #cdcdcd
+
+/* === LAYOUT end ===
+
+/* === CONTENT ===
+.main
+	flex-shrink: 1
+	flex-grow: 1
+	padding-bottom: $bottom-space--article
+
+	+media('<desk-sm')
+		padding-top: $header-height--sm
+		padding-bottom: $bottom-space--article--md
+
+	+media('<mob-lg')
+		padding-bottom: $bottom-space--article--mob
+
+/* === CONTENT end ===
+
+/*=================== {{header}} =====================*/
+
+/* === FOOTER ===
+// footer layout
+.footer
+	position: relative
+	z-index: $z-i-footer
+	background-color: white
+	overflow: hidden
+	+font(1.8rem, 2.4rem)
+
+	.font-large
+		+font-bold
+		font-size: 2.4rem
+
+.footer-row
+	$padding-v: 5rem
+	$padding-v--md: 4rem
+	$padding-v--sm: 3rem
+	position: relative
+	display: flex
+	justify-content: space-between
+	+padding-vertical($padding-v, $padding-v + 2)
+	min-height: 1px
+
+	+media('<desk-sm')
+		+padding-vertical($padding-v--md, $padding-v--md + 2)
+
+	+media('<tab-lg')
+		+padding-vertical($padding-v--sm, $padding-v--sm + 2)
+
+	+media('<mob-lg')
+		flex-wrap: wrap
+		//padding-bottom: $padding-v--sm
+		padding-bottom: 2rem
+
+	.developer
+		position: absolute
+		right: 0
+		top: 100%
+		margin-top: -#{$padding-v + 1}
+
+		+media('<desk-sm')
+			margin-top: -#{$padding-v--md + 2}
+
+		+media('<tab-lg')
+			margin-top: -#{$padding-v--sm + 2}
+
+		+media('<mob-lg')
+			position: relative
+			right: auto
+			top: auto
+			margin-top: 0
+
+.footer-col
+	//width: calc(100% / 6)
+	width: round-float($hundred-percent / 6, 2)
+	// для браузеров не поддерживающих display: flex
+	display: inline-block
+	justify-content: flex-start
+
+	+media('<desk-md')
+		//width: calc(100% / 5)
+		width: round-float($hundred-percent / 5, 2)
+
+	+media('<desk-sm')
+		//width: calc(100% / 3)
+		width: round-float($hundred-percent / 3, 2)
+
+	+media('<mob-lg')
+		display: block
+		width: 100%
+		//margin-bottom: 20px
+		padding: 0
+
+		&:last-child
+			margin-bottom: 0
+
+	& > p, & > div, & > div > p
+		margin-bottom: 2.5rem
+
+		+media('<desk-sm')
+			margin-bottom: 1.5rem
+
+		&:last-child
+			margin-bottom: 0
+
+	&:nth-child(1)
+		width: round-float($hundred-percent / 6 * 2, 2)
+		padding-right: nth($grid-space, 2)
+		justify-content: flex-start
+		text-align: left
+
+		+media('<desk-sm')
+			display: flex
+			flex-wrap: wrap
+			//width: calc(100% / 3 * 2)
+			//width: round-float($hundred-percent / 3 * 2, 2)
+			width: 100%
+			padding-right: 0
+
+		+media('<mob-lg')
+			text-align: center
+			width: 100%
+
+		& > p, & > div
+			+media('<desk-sm')
+				//width: calc(100% / 2)
+				width: round-float($hundred-percent / 3, 2)
+				padding-right: nth($grid-space--md, 2)
+				margin-bottom: $bottom-space--row
+
+				&:nth-child(1)
+					display: none
+
+				&:nth-child(2)
+					order: 1
+
+				&:nth-child(3)
+					order: 3
+
+				&:nth-child(4)
+					order: 2
+
+			+media('<mob-lg')
+				width: 100%
+				padding-right: 0
+
+				&:nth-child(3)
+					margin-bottom: $bottom-space--row
+
+				&:nth-child(n)
+					order: initial
+
+	&:nth-child(2)
+		//width: calc(100% / 6 * 4)
+		width: round-float($hundred-percent / 6 * 4, 2)
+
+		//+media('<desk-md')
+			//width: calc(100% / 5 * 3)
+			width: round-float($hundred-percent / 5 * 3, 2)
+
+		+media('<desk-sm')
+			display: none
+
+	//&:nth-child(3)
+		padding-left: nth($grid-space, 2)
+		justify-content: flex-end
+		text-align: right
+
+		+media('<desk-sm')
+			padding-left: nth($grid-space--md, 2)
+
+		+media('<mob-lg')
+			text-align: center
+			padding-left: 0
+
+// copyright
+.copyright
+	a
+		text-decoration: none
+
+		&:hover
+			color: $base-color
+
+// footer logo
+.footer-logo
+	display: block
+	width: 175px
+	max-width: 100%
+
+// footer navigation
+.footer-nav
+	overflow: hidden
+	padding-top: 27px
+
+.footer-nav__list
+	+clear-spacing
+
+	&, & ul
+		list-style: none
+		margin: 0
+		padding: 0
+
+	&
+		margin: -$bottom-space--article -#{nth($grid-space, 2)} $bottom-space--element 0
+
+		+media('<desk-sm')
+			margin: -$bottom-space--article--md -#{nth($grid-space--md, 2)} $bottom-space--element--md 0
+
+		+media('<mob-lg')
+			margin: -$bottom-space--article--mob -#{nth($grid-space--mob, 2)} $bottom-space--element--mob 0
+
+	&:last-child
+		margin-bottom: 0
+
+	a
+		text-decoration: none
+		color: inherit
+		// transition
+		$prop: color
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+		&:hover
+			color: $base-color
+
+	& > li
+		//width: calc(100% / 4)
+		width: round-float($hundred-percent / 4, 2)
+		display: inline-block
+		vertical-align: top
+		+font(1.8rem, 2.4rem)
+		letter-spacing: $letter-spacing
+		padding-right: nth($grid-space, 2)
+		margin-top: 4rem
+
+		+media('<desk-md')
+			//width: calc(100% / 3)
+			padding-right: 20px
+			//width: round-float($hundred-percent / 3, 2)
+
+		+media('<desk-sm')
+			margin-top: 3rem
+			padding-right: nth($grid-space--md, 2)
+
+		+media('<mob-lg')
+			margin-top: 2rem
+			padding-right: nth($grid-space--mob, 2)
+
+		& > a
+			display: inline-block
+			vertical-align: top
+			+font-bold
+			+font(2.4rem, round-float(30/24, 2))
+
+			& + ul
+				margin-top: 2.5rem
+
+				+media('<desk-sm')
+					margin-top: 1.5rem
+
+				//+media('<mob-lg')
+					margin-top: $bottom-space--element--mob
+
+		ul
+			& > li
+				margin-top: 1rem
+
+				a
+					padding-top: 0.5em
+
+				ul
+					display: none
+
+				li
+					font-size: 0.85em
+					padding-left: 1em
+
+/* footer navigation end
+
+/* footer social share
+.soc-share
+	overflow: hidden
+	line-height: 0
+	margin-bottom: $bottom-space
+	+clear-spacing
+
+	&:last-child
+		margin-bottom: 0
+
+.soc-share__list
+	position: relative
+
+.soc-share__item
+	margin: 2px 0
+
+.soc-share__item__label,
+.soc-share__item__list
+	display: inline-block
+	vertical-align: top
+	+font($font-size, 20px)
+	letter-spacing: normal
+
+.soc-share__item__label
+	margin: 0 10px 10px 0
+
+	+media('<tab-lg')
+		margin: 0 7px 7px 0
+
+.soc-share__item__list
+	+clear
+
+	& > a
+		display: block
+		float: left
+		margin: 0 10px 10px 0
+		position: relative
+		color: inherit
+		transition:
+			property: color, border-color
+			duration: $animation-speed
+
+		+media('<tab-lg')
+			margin: 0 7px 7px 0
+
+		span
+			+hide-text
+
+		svg
+			display: block
+			+size(20px)
+
+		path
+			fill: currentColor
+
+		&:hover
+			color: $base-color
+
+/* footer social share end
+
+/* developer
+.developer
+	display: block
+
+	.footer .footer-col &, &
+		margin-bottom: 0
+
+		+media('>=mob-lg')
+			width: auto
+			padding: 0
+
+	+media('<mob-lg')
+		font-size: 14px
+		line-height: 30px
+		border-top: 1px solid $border-color
+		//padding-top: $bottom-space--row
+		padding-top: 2rem
+
+	a
+		text-decoration: none
+
+		.no-touchevents &:hover
+			text-decoration: none
+
+.developer__label
+	display: inline-block
+	vertical-align: top
+
+.developer__logo
+	+display-inline-block-top
+	position: relative
+	top: 5px
+	padding-right: 3px
+	+size(154px, 20px)
+	text-align: left
+	text-indent: -9999px
+
+	&::before, &::after
+		+pseudo()
+		+position(0, 0)
+		+size(149px, 16px)
+
+	&::before
+		+pseudo()
+		+position(4px, 4px)
+		background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTA2ODc1N0UwOEJDMTFFNzlCNzhBOUI2REQxMjc4QzgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTA2ODc1N0YwOEJDMTFFNzlCNzhBOUI2REQxMjc4QzgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MDY4NzU3QzA4QkMxMUU3OUI3OEE5QjZERDEyNzhDOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MDY4NzU3RDA4QkMxMUU3OUI3OEE5QjZERDEyNzhDOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnDruBQAAAAkSURBVHjaYmRgYPjPACL+/2cE0YwYAkAGA5jByPgfqwBAgAEAP4gP/bFMMZQAAAAASUVORK5CYII=')
+		background-size: 2px
+
+	//.no-touchevents a:hover
+		transform: translate(0, 1px)
+		filter: blur(2px)
+		opacity: 0.6
+
+	&::after
+		+pseudo()
+		background: #00ef85 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAgBAMAAABa5liJAAAAMFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaPxwLAAAAD3RSTlMAd7tEIt0R7pkzzIhmqlV9QenDAAAD2klEQVRYw+2WPYsTURSGj5oEs0lMBkUUlMSUWkxwxNKsnV2ihWCVbGXpFwhWs6Io2GT0D2xQsM2KqGUEEUvFwjbxF7irO2ZMsh7PuRvP3Xuv2mhhkRd258zuvc/7bOaDhXnmmedvUi79S1rK2wcqp99XnyzSwVOhib4fBJWl98ciOuS9GsCuQzR5HNLY4akdW1ovDc6OvUCLPS7wPJ5lEKBU6FJJDiezI4Wa6qhCAny4AKwTIiZtgJ3YpLrPAICcNYAi7+ggAHyET7Udw22c4jrQYiQ1pJwFGTRQKnSpJI0xcAbxE+8e4R5Uq+HVajUCwCOHWyM6Qnn05BlWWGs60/K81lmPu7ELELJW+KF+wj8vHEPr5oEeLsuggVKhSyUrE+SzPbx+Fr8CHCwR9h1AFh9DpjdlrVhp6TXFeAPyMWudGfXvJovCMbRqkOp9kUGAUqGBOv3zuEqH3QRwtaB3GaAworqLMWklOLS0kgkUJgjshWQlHEsLGpsyaKCucLVaq4MmUOWvtfw1IiXqlolg57pfMbXq32NoXBMt4ThaC2MZNFAqXK0s1srf1KrSLz8tUn77HZhZIq1PXyyttTAqP+e646P+iyQSjq21M5ZBA6XC1cqNoDHhpzfcXHS18ryv/JVOMkor/dnW6iy3IqrL0C1/ctAUjq1FG2UQoFS4WukEFmIe3uDm0NK6daozbgMM1tTZO9LKY2RqNVdujIHrXsHb2p6hcGyt+lQGDZQKV2vlO+2NaEh1MH5palHu8OkWpUJamXDZ1Kqkx+ukJW954ZhaS2FXBg2UClerfxlSuKp4L9AUx3O9RJ3qTwvKG4ZWubIDN7ZpCcfQengU40gGDZQKV6v1jr6aoPIau+a9lVfCnS1KibUuJpZWiuj6aRGO9ZYf7QcZNFAqHK0sPg2CwTdQyfhTUwvKX7j7mzyJ9IQsmVrgv7S1mGNo7Q0iABk0UCocrRxyJrOzxrqldZEdPk1VQcRaKfQsLQBDSzhFhhZm7wWODAKUCkcrjZyxvAItrRyTLvHGdAysBZ2zrpavtTRngdctbLpaApQKV2uFxXO4CCpv7YuYQhoLOCSB6ZZWI96uNXC0hLObofWpqyVAqXC1+vxmy9JvC68A7ofXLS3obABtvNJewi5rcRtrBUHvUVD7udJfFp5wSOIR7ArPu1oClApHix9EStiFIlJGka3VSPiP5+vcZi1mb/9/y1+1iZrTx888uFoClAobkuWfK+GdIWK8H2ytAl+KrK8ebKUFvqFVsomas6eHeBt+pSVAqRCImyBow2+SCSL4c1wO76r9CTjPPPP8x/kBIrOdsjg4YcgAAAAASUVORK5CYII=') no-repeat center center
+		background-size: auto 16px
+
+		.no-touchevents a:hover &
+			transform: translate(0, -1px)
+
+/* developer end
+/* === FOOTER end ===

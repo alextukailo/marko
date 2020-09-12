@@ -1,0 +1,37 @@
+[
+  {
+	"src": "img/img-promo-slider-01.jpg",
+	"srcMob": "img/4-3.jpg",
+	"title": "",
+	"alt": "Image Description",
+	"text": ""
+  },
+  {
+	"src": "img/img-promo-slider-02.jpg",
+	"srcMob": "img/4-3.jpg",
+	"title": "",
+	"alt": "Image Description",
+	"text": ""
+  },
+  {
+	"src": "img/img-promo-slider-03.jpg",
+	"srcMob": "img/4-3.jpg",
+	"title": "",
+	"alt": "Image Description",
+	"text": ""
+  },
+  {
+	"src": "img/img-promo-slider-04.jpg",
+	"srcMob": "img/4-3.jpg",
+	"title": "",
+	"alt": "Image Description",
+	"text": ""
+  },
+  {
+	"src": "img/img-promo-slider-05.jpg",
+	"srcMob": "img/4-3.jpg",
+	"title": "",
+	"alt": "Image Description",
+	"text": ""
+  }
+]

@@ -1,0 +1,169 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+body
+	position: relative
+	min-width: $page-layout-min
+	+font-normal
+	+font($font-size, $line-height)
+	letter-spacing: $letter-spacing
+	color: $text-color
+	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
+
+	// выделение текста
+	*::selection
+		background-color: $base-color
+		color: white
+
+.font
+	+font-normal
+	color: $text-color
+
+	+font($font-size, $line-height)
+	letter-spacing: $letter-spacing
+
+h1, h2, h3, h4, h5, h6
+	padding: 0
+	+font-alt-bold
+	color: $title-color
+	margin: 0 0 $bottom-space
+
+	+media('<mob-lg')
+		margin-bottom: round-float($bottom-space*0.85, 1)
+
+	&:last-child
+		margin-bottom: 0
+
+	a
+		text-decoration: none
+		color: inherit
+
+		.no-touchevents &:hover
+			color: $base-color
+			text-decoration: underline
+
+h1
+	+font-h1
+
+h2
+	+font-h2
+
+h3
+	+font-h3
+
+h4
+	+font($font-size-h4, $line-height-h4)
+
+h5
+	+font($font-size-h5, $line-height-h5)
+
+h6
+	+font($font-size-h6, $line-height-h6)
+	text-transform: uppercase
+
+p
+	padding: 0
+	margin: 0 0 $bottom-space
+
+hr
+	line-height: 1px
+	height: 0
+	border: none
+	background: none
+	border-bottom: 1px solid $border-color
+	margin-bottom: $bottom-space
+
+a
+	color: $link-color
+	text-decoration: underline
+	cursor: default
+
+	&:link
+		cursor: pointer
+
+	&:hover
+		text-decoration: none
+
+	&[href^="tel"]
+		text-decoration: none !important
+		color: inherit
+		cursor: default
+
+	&[href^="javascript:"]
+		cursor: default
+
+img
+	border: none
+	vertical-align: top
+	max-width: 100%
+
+	table &
+		max-width: none
+
+b, strong, th
+	+font-bold
+
+i, em
+	+font-italic
+
+i b, i strong, em b, em strong, b i, b em, strong i, strong em
+	+font-bold-italic
+
+.hide
+	display: none !important
+
+.mark
+	color: $mark-color
+	font-style: inherit
+	font-weight: inherit
+
+.text-light
+	color: $text-color-light
+
+.align-center
+	text-align: center
+
+.align-left
+	text-align: left
+
+.align-right
+	text-align: right
+
+.float-left
+	float: left
+
+.float-right
+	float: right
+
+.nobr
+	white-space: nowrap
+
+.hide-text
+	+hide-text
+
+/* columns
+$columns-gap: 2em
+.columns
+	+clear
+
+.column
+	float: left
+	width: calc(50% - #{round($columns-gap/2)})
+	margin: 0 round($columns-gap/2)
+
+	+media('<mob-lg')
+		float: none
+		width: auto
+		margin: 0 0 5rem
+
+		&:last-child
+			margin-bottom: 0
+
+	&:nth-child(odd)
+		margin-left: 0
+
+	&:nth-child(even)
+		margin-right: 0
+
+/* columns end

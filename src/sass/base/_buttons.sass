@@ -1,0 +1,177 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+[class|="btn"], [class*=" btn-"], input[type="submit"], input[type="button"], input[type="reset"], button
+	display: inline-block
+	vertical-align: top
+	position: relative
+	text-align: center
+	text-decoration: none
+	cursor: pointer
+
+[class|="btn"], [class*=" btn-"]
+	& input[type="submit"], & input[type="button"], & input[type="reset"]
+		background: url("../../img/empty.png") repeat
+		display: block
+		+cover-abs()
+		padding: 0
+		border: none
+		z-index: 99
+		opacity: 0
+
+/* btn-default
+[class*="btn-default"]
+	$animation-speed: 0.35s
+	position: relative
+	+font-normal
+	color: $text-color
+	padding: floor(($btn-height - $btn-line-height) / 2) 26px ceil(($btn-height - $btn-line-height) / 2)
+	border: none
+	background: transparent
+	box-shadow: none
+	margin: 0
+	z-index: 1
+	// transition
+	$prop: color
+	transition:
+		property: $prop
+		duration: $animation-speed
+
+	.touchevents &
+		color: white
+
+	+media('<desk-sm')
+		padding: floor(($btn-height--mob - $btn-line-height--mob) / 2) 20px ceil(($btn-height--mob - $btn-line-height--mob) / 2)
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		top: 0
+		height: 100%
+		width: 200px
+		max-width: 13px
+		background-color: $base-color
+		z-index: -1
+		$scaleX: 1
+		transform: scale($scaleX, 1) skew($skew, 0)
+		transform: scale3d($scaleX, 1, 1) skewX($skew)
+		// transition
+		$prop: max-width
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55)
+
+		.touchevents &
+			max-width: calc(50% + 2px)
+
+	&::before
+		left: calc(50% - 2px)
+
+	&::after
+		right: calc(50% - 2px)
+
+	&, & > span
+		+font($btn-font-size, $btn-line-height)
+		letter-spacing: 0.1em
+
+		+media('<desk-sm')
+			+font($btn-font-size--mob, $btn-line-height--mob)
+			letter-spacing: 0.05em
+
+	// hover
+	.no-touchevents &:not(:disabled):not(.disabled):not(data-disabled)
+		&:hover
+			color: white
+
+			&::before, &::after
+				max-width: calc(50% + 2px)
+
+	// disabled
+	&:disabled, &.disabled, &[data-disabled]
+		cursor: default
+
+		&::before, &::after
+			background-color: $btn-disabled-color
+
+/* btn-default end
+
+/* btn-default-alt
+.btn-default-alt
+	color: white
+
+/* btn-default-alt end
+
+/* button popup close
+//.btn-popup-close
+	//<a href="#" class="btn-popup-close js-btn-menu-close"><i></i><span>Закрыть</span></a>
+	$btn-bg: #f3f3f3
+	$btn-color: $text-color
+	$btn-size: 60px
+	$btn-space: 12px
+	$btn-lines-width: 20px
+	$btn-lines-height: 3px
+	$btn-lines-space: 5px
+	$btn-lines-color: $text-color
+
+	=line-style()
+		+size($btn-lines-width, $btn-lines-height)
+		border-radius: 2px
+
+	display: block
+	+size($btn-size)
+	background: $btn-bg
+	color: white
+	text-decoration: none
+	+clear-spacing
+	white-space: nowrap
+	transition-property: background-color, opacity, visibility
+	transition-duration: $animation-speed
+
+	+media('<mob-lg')
+		+size(45px)
+
+	&::before
+		content: ''
+		display: inline-block
+		height: $btn-size
+		min-height: 100%
+		vertical-align: middle
+
+	> span
+		+hide-text
+
+	> i
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		backface-visibility: hidden
+		background-color: transparent
+		+line-style
+
+		&::before, &::after
+			+pseudo()
+			left: 0
+			backface-visibility: hidden
+			+line-style
+			background: $btn-lines-color
+			transition-property: background-color
+			transition-duration: $animation-speed
+
+		//first line menu
+		&::before
+			top: 0
+			transform: rotate(-45deg)
+
+		//third line menu
+		&::after
+			top: 0
+			transform: rotate(45deg)
+
+	.no-touchevents &:hover
+		background-color: $mark-color
+
+/* button popup close end

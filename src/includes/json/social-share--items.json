@@ -1,0 +1,68 @@
+[
+  {
+	"label": "Марко - холдинг:",
+	"vk": {
+	  "class": "vk",
+	  "link": "https://vk.com/marko_holding ",
+	  "svg": "@@include('includes/svg/icon-soc--vkontakte.svg')",
+	  "title": "Vkontakte"
+	},
+	"youtube": {
+	  "class": "youtube",
+	  "link": "https://www.youtube.com/channel/UCR90-TJR5cfT4kem7OWTGxg",
+	  "svg": "@@include('includes/svg/icon-soc--youtube.svg')",
+	  "title": "Youtube"
+	}
+  },
+  {
+	"label": "Марко - обувь:",
+	"vk": {
+	  "class": "vk",
+	  "link": "https://vk.com/markoholding",
+	  "svg": "@@include('includes/svg/icon-soc--vkontakte.svg')",
+	  "title": "Vkontakte"
+	},
+	"inst": {
+	  "class": "instagram",
+	  "link": "https://www.instagram.com/markoholding/?hl=ru",
+	  "svg": "@@include('includes/svg/icon-soc--instagram.svg')",
+	  "title": "Instagram"
+	},
+	"ok": {
+	  "class": "ok",
+	  "link": "https://ok.ru/markoholding",
+	  "svg": "@@include('includes/svg/icon-soc--odnoklassniki.svg')",
+	  "title": "Odnoklassniki"
+	},
+	"fb": {
+	  "class": "fb",
+	  "link": "https://www.facebook.com/markoholding/",
+	  "svg": "@@include('includes/svg/icon-soc--facebook.svg')",
+	  "title": "Facebook"
+	}
+  },
+  {
+	"label": "Сан Марко - детская обувь:",
+	"vk": {
+	  "class": "vk",
+	  "link": "https://vk.com/san_marko_kids",
+	  "svg": "@@include('includes/svg/icon-soc--vkontakte.svg')",
+	  "title": "Vkontakte"
+	},
+	"inst": {
+	  "class": "instagram",
+	  "link": "https://www.instagram.com/sanmarkokids/?hl=ru",
+	  "svg": "@@include('includes/svg/icon-soc--instagram.svg')",
+	  "title": "Instagram"
+	}
+  },
+  {
+	"label": "Браво - обувь:",
+	"inst": {
+	  "class": "instagram",
+	  "link": "https://www.instagram.com/bravotrend_official/?hl=ru",
+	  "svg": "@@include('includes/svg/icon-soc--instagram.svg')",
+	  "title": "Instagram"
+	}
+  }
+]
