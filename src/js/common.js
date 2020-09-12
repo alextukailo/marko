@@ -16,7 +16,7 @@ function getVals() {
 	}
   
 	var displayElement = parent.getElementsByClassName("rangeValues")[0];
-	displayElement.innerHTML = "Высота каблука: " + slide1 + "  - " + slide2 + " ";
+	displayElement.innerHTML = "Высота каблука: " + slide1 + "  - " + slide2 + " см.";
   }
   
   window.onload = function () {

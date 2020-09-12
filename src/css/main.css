@@ -1089,6 +1089,17 @@ figure.zoom {
 	
 }
 
+.sortbar__items {
+	display: flex;
+
+}
+
+.pagination__wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .sidebar {
 	max-width: 230px;
 	width: 17%;
@@ -1126,15 +1137,16 @@ figure.zoom {
 	transform: rotate(90deg);
 }
 
-.pagination {
-	width: 100%;
+.pagination,
+.pagination__perpage {
 	display: flex;
 	align-items: baseline;
 	/* padding: 0 15px; */
 	margin-top: 15px;
 }
 
-.pagination span {
+.pagination span,
+.pagination__perpage span {
 	font-size: 14px;
 	font-weight: 600;
 	margin-right: 5px;
@@ -1143,15 +1155,20 @@ figure.zoom {
 .pagination__item {
 	font-size: 14px;
 	font-weight: 600;
-    padding: 7px;
+	padding: 7px;
+	cursor: pointer;
 }
 
-.pagination__item a:hover {
+.pagination__item a:hover,
+.pagination__item:hover {
 	color: #ee1c25;
+	text-decoration: underline;
 }
 
-.active.pagination__item a {
+.active.pagination__item a,
+.active.pagination__item {
 	color: #ee1c25;
+	cursor: pointer;
 }
 
 .pagination__item a {
@@ -1159,8 +1176,6 @@ figure.zoom {
 }
 
 .sortbar {
-	display: flex;
-	flex-wrap: wrap;
 	margin-bottom: 5px;
 }
 
