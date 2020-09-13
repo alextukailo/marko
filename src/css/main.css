@@ -854,7 +854,10 @@ figure.zoom {
 
   .select__lit {
 	position: absolute;
-    top: 15px;
+	top: 30px;
+    padding: 0 10px 25px 10px;
+	background: #ffffff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   }
 
 .booking__heading {
