@@ -336,6 +336,36 @@ table {
 	width: 100%;
 }
 
+.select__clear {
+	display: flex;
+	width: 100%;
+	max-width: 100%;
+	padding: 12px 15px;
+	padding-top: 0;
+	padding-left: 0;
+	line-height: 18px;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.select__clear::after {
+	width: 17px;
+	height: 17px;
+	background: url(../img/close.svg) no-repeat center/cover;
+	/* transform: translateY(50%) rotate(270deg); */
+	background-size: 9px;
+	content: '';
+	display: block;
+	transition: .2s ease-in;
+	margin-left: 5px;
+  }
+
+.clear.select__clear::after {
+	background: url(../img/tick.svg) no-repeat center/cover;
+}
+
 .select__head {
 	display: flex;
 	width: 100%;

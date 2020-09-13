@@ -45,6 +45,20 @@ function zoom(e) {
   }
   
 
+  let clearValue = () => {
+	jQuery('.select__input').on('click', function () {
+		if(!jQuery('.select__input').val()) {
+			jQuery('.select__clear').addClass('clear')
+		} else {
+			jQuery('.select__clear').removeClass('clear')
+		}
+	})
+	jQuery('.select__clear').on('click', function () {
+		jQuery('.select__input').removeAttr( "value" )
+	})
+}
+clearValue()
+
 //Select -> Options JS
 jQuery(($) => {
 	$('.select').on('click', '.select__head', function () {
@@ -58,6 +72,11 @@ jQuery(($) => {
 			$(this).next().fadeIn();
 		}
 	});
+	// if(!$('.select__input').val()) {
+	// 	console.log('false')
+	// } else {
+	// 	console.log('true')
+	// }
 
 	$('.select').on('click', '.select__item', function () {
 		$('.select__head').removeClass('open');
