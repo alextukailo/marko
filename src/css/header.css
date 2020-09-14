@@ -1090,10 +1090,10 @@ input.search-form__input:hover, input.search-form__input:focus {
 @media (min-width: 1280px) {
 	.nav__drop {
 		display: block !important;
-		position: absolute;
+		position: fixed;
 		left: 0;
 		top: 100%;
-		width: 280px;
+		width: 100%;
 		padding: 0;
 		border: 1px solid #e6e6e6;
 		background-color: #fff;
