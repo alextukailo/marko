@@ -46,16 +46,20 @@ function zoom(e) {
   
 
   let clearValue = () => {
-	jQuery('.select__input').on('click', function () {
-		if(!jQuery('.select__input').val()) {
-			jQuery('.select__clear').addClass('clear')
-		} else {
-			jQuery('.select__clear').removeClass('clear')
-		}
-	})
-	jQuery('.select__clear').on('click', function () {
-		jQuery('.select__input').removeAttr( "value" )
-	})
+		$('.select__clear').on('click', function () {
+			$(this).addClass('clear')
+			$("input[name='sortby']").next().html('Сортировать по:')
+			$("input[name='brand']").next().html('Бренд')
+			$("input[name='season']").next().html('Сезон')
+				// console.log('test')
+			setTimeout(function(){
+				$('.select__clear').removeClass('clear')
+			}, 2000);
+		})
+		
+		$('.select__clear').on('click', function () {
+			$('.select__input').removeAttr( "value" )
+		})
 }
 clearValue()
 
