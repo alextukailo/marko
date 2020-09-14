@@ -1302,6 +1302,10 @@ figure.zoom {
 	width: 260px;
 }
 
+.category__item a {
+	font-size: 16px;
+}
+
 .category__item_all {
 	margin-top: 30px;
 	color: #000000;
