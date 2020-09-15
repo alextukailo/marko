@@ -2,6 +2,8 @@
  * !Resize only width
  * */
 
+
+
 function getVals() {
 	// Get slider values
 	var parent = this.parentNode;
@@ -71,7 +73,7 @@ jQuery(($) => {
 			$(this).next().fadeOut();
 		} else {
 			$('.select__head').removeClass('open');
-			$('.select__list').fadeOut();
+			$('.select__list, .select__lit').fadeOut();
 			$(this).addClass('open');
 			$(this).next().fadeIn();
 		}
@@ -92,10 +94,14 @@ jQuery(($) => {
 	$(document).click(function (e) {
 		if (!$(e.target).closest('.select').length) {
 			$('.select__head').removeClass('open');
-			$('.select__list').fadeOut();
+			$('.select__list, .select__lit').fadeOut();
 		}
 	});
+		
 });
+
+
+
 
 $(".outlet-carousel").length &&
 $(".outlet-carousel").owlCarousel({
