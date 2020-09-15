@@ -1270,7 +1270,7 @@ figure.zoom {
 }
 
 .category {
-	padding: 40px;
+	padding: 40px 90px;
 	width: 50%;
 }
 .category:first-child {
@@ -1286,7 +1286,7 @@ figure.zoom {
 .category__list {
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 550px;
+	max-width: 515px;
 	
 	padding-right: 10px;
 }
@@ -1299,7 +1299,7 @@ figure.zoom {
 
 .category__item {
 	font-size: 14px;
-	width: 260px;
+	width: 255px;
 }
 
 .category__item a {
