@@ -1102,6 +1102,7 @@ input.search-form__input:hover, input.search-form__input:focus {
 		-ms-transform: translate(-10px, 0);
 		    transform: translate(-10px, 0);
 		transform: translate3d(-10px, 0, 0);
+		z-index: 99999;
 	}
 }
 
