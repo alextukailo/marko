@@ -114,6 +114,26 @@ $(".outlet-carousel").owlCarousel({
                 responsive: { 0: { items: 3 }, 768: { items: 3 }, 1024: { items: 7 } },
             })
  
+			$(".product__carousel").length &&
+			$(".product__carousel").owlCarousel({
+				loop: true,
+				margin: 0,
+				nav: true,
+				smartSpeed: 700,
+				autoplay: true,
+				navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+				responsive: { 0: { items: 3 }, 768: { items: 3 }, 1024: { items: 3 } },
+			})
+			$(".product__carousel-lastseen").length &&
+			$(".product__carousel-lastseen").owlCarousel({
+				loop: true,
+				margin: 0,
+				nav: true,
+				smartSpeed: 700,
+				autoplay: true,
+				navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+				responsive: { 0: { items: 3 }, 768: { items: 3 }, 1024: { items: 3 } },
+			})
 
 var monthNames = [ "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ];

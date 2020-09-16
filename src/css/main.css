@@ -1034,7 +1034,9 @@ figure.zoom {
 	height: 450px;
 	/* max-width: 140px; */
 }
-
+.product__carousel {
+	max-width: 700px;
+}
 .product__recomend {
 	/* display: none; */
 	margin-bottom: 50px;
