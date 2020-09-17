@@ -262,7 +262,7 @@
 							<a href="#"><span>Сумки и аксессуары</span></a>
 							<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 						</div>
-						<div class="nav__drop nav__drop-js">
+						<div class="nav__drop nav__drop-js nav nav__simple">
 							<ul class="sub-nav__list">
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -291,7 +291,7 @@
 							<a href="#"><span>Скидки</span></a>
 							<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 						</div>
-						<div class="nav__drop nav__drop-js">
+						<div class="nav__drop nav__drop-js nav__simple">
 							<ul class="sub-nav__list">
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -320,7 +320,7 @@
 							<a href="#"><span>Где купить</span></a>
 							<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 						</div>
-						<div class="nav__drop nav__drop-js">
+						<div class="nav__drop nav__drop-js nav__simple">
 							<ul class="sub-nav__list">
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -349,7 +349,7 @@
 							<a href="#"><span>О компании</span></a>
 							<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 						</div>
-						<div class="nav__drop nav__drop-js">
+						<div class="nav__drop nav__drop-js nav__simple">
 							<ul class="sub-nav__list">
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -378,7 +378,7 @@
 							<a href="#"><span>Новости</span></a>
 							<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 						</div>
-						<div class="nav__drop nav__drop-js">
+						<div class="nav__drop nav__drop-js nav__simple">
 							<ul class="sub-nav__list">
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -407,7 +407,7 @@
 							<a href="#"><span>Покупателям</span></a>
 							<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 						</div>
-						<div class="nav__drop nav__drop-js">
+						<div class="nav__drop nav__drop-js nav__simple">
 							<ul class="sub-nav__list">
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -540,12 +540,25 @@
 											<span class="product__price">100</span><span> бел.руб.</span>
 											<div class="product__color">Цвет: <span>черный</span></div>
 											<div class="product__color-box color-box">
-												<div class="color-box__item color-box__item_red "></div>
-												<div class="color-box__item color-box__item_black active"></div>
-												<div class="color-box__item color-box__item_brown"></div>
+												<div class="color-box__item" title="Красный">
+													<figure class="zoom" onmousemove="zoom(event)" style="background-image: url(https://i.pinimg.com/236x/81/19/06/811906c76ce528161d061d2106bf14f6--stewart-tartan-scottish-plaid.jpg)">
+														<img src="https://i.pinimg.com/236x/81/19/06/811906c76ce528161d061d2106bf14f6--stewart-tartan-scottish-plaid.jpg" />
+													</figure>
+												</div>
+												<div class="color-box__item active" title="Черный">
+													<figure class="zoom" onmousemove="zoom(event)" style="background-image: url(https://i.pinimg.com/originals/2a/9d/4f/2a9d4f91f1581fa598ceda28d4d641d8.jpg)">
+														<img src="https://i.pinimg.com/originals/2a/9d/4f/2a9d4f91f1581fa598ceda28d4d641d8.jpg" />
+													</figure>
+												</div>
+												<div class="color-box__item" title="Коричневый">
+													<figure class="zoom" onmousemove="zoom(event)" style="background-image: url(https://i.pinimg.com/originals/d8/1d/7b/d81d7ba159a866be28c335ccc9edea70.jpg)">
+														<img src="https://i.pinimg.com/originals/d8/1d/7b/d81d7ba159a866be28c335ccc9edea70.jpg" />
+													</figure>
+												</div>
+												
 											</div>
 											<div class="product__size">Выберите размер: <span class="product__size_table">таблица размеров</span> </div>
-											<ul class="product__size_items">
+											<ul class="product__size_items" id="product__size_items">
 												<li class="product__size_item disabled">41</li>
 												<li class="product__size_item">42</li>
 												<li class="product__size_item active">43</li>

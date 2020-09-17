@@ -203,15 +203,20 @@ $(document).ready(function() {
 	});
 });
 
-// let header = document.getElementsByClassName("product__size_items");
-// let btns = header.getElementsByClassName("product__size_item");
-// for (var i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function() {
-//   var current = document.getElementsByClassName("active");
-//   current[0].className = current[0].className.replace(" active", "");
-//   this.className += " active";
-//   });
-// }
+// // let sizeNumber = () => {
+// 	let header = document.getElementsByClassName("product__size_items");
+// 	let btns = header.getElementsByClassName("product__size_item");
+// 	for (var i = 0; i < btns.length; i++) {
+// 		btns[i].addEventListener("click", function() {
+// 		var current = document.getElementsByClassName("active");
+// 		current[0].className = current[0].className.replace(" active", "");
+// 		this.className += " active";
+// 		});
+// 	}
+// // }
+// // sizeNumber()
+
+
 
 
 $(document).ready(function() {

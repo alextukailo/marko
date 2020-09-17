@@ -1831,11 +1831,28 @@ a .point__phone:hover {
 }
 
 .color-box__item {
+	position: relative;
 	width: 50px;
 	height: 50px;
 	margin-right: 5px;
 	cursor: pointer;
 	border-radius: 4px;
+	transition: transform 0.2s ease-out;
+	z-index: 1;
+	overflow: hidden;
+	border: 2px solid transparent;
+}
+
+.color-box__item figure.zoom img {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+}
+
+.color-box__item:hover {
+	transform: translateX(50px) scale(3.0);
+	z-index: 9;
+	border: none !important;
 }
 
 .color-box__item.active {
