@@ -2174,6 +2174,7 @@ h3 {
 .insta__item {
 	margin: 5px;
 	/* height: 600px; */
+	max-height: 600px;
 }
 @media (max-width: 639px) {
 	h3 {
@@ -3673,6 +3674,11 @@ a.prod__inner {
 	position: absolute !important;
 	/* width: auto !important; */
 }
+
+.Caption {
+	display: none !important;
+}
+
 @media (max-width: 1279px) {
 	.prod__body {
 		padding: 20px 20px 140px;
