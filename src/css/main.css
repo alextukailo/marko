@@ -5256,7 +5256,14 @@ a.prod__inner {
 	}
 }
 
+.collection-slider__items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .collection-slider__item {
+	width: 33.333%;
+	height: 400px;
 	position: relative;
 	overflow: hidden;
 	display: block;
@@ -5279,6 +5286,10 @@ a.prod__inner {
 }
 
 @media (max-width: 639px) {
+	.collection-slider__item {
+		width: 100%;
+	}
+
 	.collection-slider__item {
 		font-size: 1.6rem;
 	}
