@@ -1576,7 +1576,7 @@ a .point__phone:hover {
 		display: flex;
 		justify-content: center;
 		margin-top: 0px;
-		margin-bottom: 45px;
+		margin-bottom: 55px;
 		font-size: 1rem;
 		font-weight: 600;
 		color: #FF0000;
@@ -3656,7 +3656,7 @@ a.prod__inner {
 	.booking__waiting {
 		position: absolute;
 		width: 84%;
-		top: 16px;
+		top: 25px;
 		left: 50%;
 		text-align: end;
 	}
