@@ -3671,7 +3671,7 @@ a.prod__inner {
 }
 .nav__simple {
 	position: absolute !important;
-	width: auto !important;
+	/* width: auto !important; */
 }
 @media (max-width: 1279px) {
 	.prod__body {
