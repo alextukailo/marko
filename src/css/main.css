@@ -1576,7 +1576,7 @@ a .point__phone:hover {
 		display: flex;
 		justify-content: center;
 		margin-top: 0px;
-		margin-bottom: 30px;
+		margin-bottom: 45px;
 		font-size: 1rem;
 		font-weight: 600;
 		color: #FF0000;
@@ -3462,6 +3462,7 @@ a.prod__inner {
 	padding: 30px 30px 80px;
 	text-decoration: none;
 	color: inherit;
+	border-right: 1px solid #e6e6e6;
 }
 
 @media (max-width: 1279px) {
@@ -3641,7 +3642,10 @@ a.prod__inner {
 	    align-items: center;
 	padding: 30px 30px 140px;
 }
-
+.nav__simple {
+	position: absolute !important;
+	width: auto !important;
+}
 @media (max-width: 1279px) {
 	.prod__body {
 		padding: 20px 20px 140px;
@@ -3649,6 +3653,13 @@ a.prod__inner {
 }
 
 @media (max-width: 639px) {
+	.booking__waiting {
+		position: absolute;
+		width: 84%;
+		top: 16px;
+		left: 50%;
+		text-align: end;
+	}
 	.category {
 		padding: 15px 10px;
 		width: 50%;
