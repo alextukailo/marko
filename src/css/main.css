@@ -2174,7 +2174,7 @@ h3 {
 .insta__item {
 	margin: 5px;
 	/* height: 600px; */
-	max-height: 600px;
+	/* max-height: 600px; */
 }
 @media (max-width: 639px) {
 	h3 {
