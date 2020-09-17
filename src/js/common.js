@@ -103,8 +103,8 @@ jQuery(($) => {
 
 
 
-$(".outlet-carousel").length &&
-$(".outlet-carousel").owlCarousel({
+			$(".outlet-carousel").length &&
+			$(".outlet-carousel").owlCarousel({
                 loop: true,
                 margin: 0,
                 nav: true,
