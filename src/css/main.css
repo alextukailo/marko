@@ -1404,6 +1404,10 @@ figure.zoom {
 }
 
 @media (max-width: 768px) {
+	.form__item_card::after {
+		position: absolute;
+		bottom: -28px !important;
+	}
 	.locate__booking a{
 		top: 0;
 		font-size: 16px;
@@ -1518,9 +1522,10 @@ a .point__phone:hover {
 
 @media(max-width: 639px) {
 	.select__lit {
-		position: absolute;
-		top: 22px;
-		right: -50%;
+		position: fixed;
+		top: 120px;
+		left: 50%;
+		right: auto;
 		transform: translateX(-50%);
 	}
 
@@ -3657,7 +3662,7 @@ a.prod__inner {
 		position: absolute;
 		width: 84%;
 		top: 25px;
-		left: 50%;
+		left: 57%;
 		text-align: end;
 	}
 	.category {
