@@ -100,7 +100,16 @@ jQuery(($) => {
 		
 });
 
-
+			$(".insta-carousel").length &&
+			$(".insta-carousel").owlCarousel({
+				loop: true,
+				margin: 0,
+				nav: true,
+				smartSpeed: 700,
+				autoplay: false,
+				navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+				responsive: { 0: { items: 2 }, 768: { items: 3 }, 1024: { items: 4 } },
+			})
 
 
 			$(".outlet-carousel").length &&
@@ -135,6 +144,8 @@ jQuery(($) => {
 				navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
 				responsive: { 0: { items: 2 }, 768: { items: 3 }, 1024: { items: 4 } },
 			})
+
+			
 
 var monthNames = [ "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ];
