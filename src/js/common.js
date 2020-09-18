@@ -2,6 +2,11 @@
  * !Resize only width
  * */
 
+$(document).ready(function() {
+	$('.user-options__item_login').click(function() {
+		$(this).next().slideToggle()
+	});
+});
 
 
 function getVals() {

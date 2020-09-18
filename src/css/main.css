@@ -1426,6 +1426,27 @@ figure.zoom {
 	color: #ee1c25;
 }
 
+.login {
+	/* display: block; */
+	display: none;
+	position: absolute;
+	top: 80px;
+	right: 50px;
+	padding: 20px;
+	background: #ffffff;
+	z-index: 9999;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 8px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.login__item {
+	margin-bottom: 10px;
+}
+
+.login__item a{
+	padding-bottom: 10px;
+	color: #ee1c25;
+}
+
 @media (max-width: 768px) {
 	.form__item_card::after {
 		position: absolute;
