@@ -820,7 +820,7 @@ figure.zoom {
 	}
 
 	.section__content {
-		padding: 20px 0;
+		padding: 15px 0;
 	}
 	#sync2 {
 		display: none;
@@ -1544,6 +1544,10 @@ a .point__phone:hover {
 }
 
 @media(max-width: 639px) {
+	.buy__product {
+		display: block;
+		margin: 0 auto;
+	}
 	.select__lit {
 		position: fixed;
 		top: 120px;
