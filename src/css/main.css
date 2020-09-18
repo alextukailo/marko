@@ -811,6 +811,14 @@ figure.zoom {
 	  display: block;
   }
   @media(max-width: 530px) {
+	.nav__list a span {
+		font-size: 1.3rem;
+	}
+
+	.nav__list a {
+		padding: 0px 24px;
+	}
+
 	.section__content {
 		padding: 20px 0;
 	}
@@ -3714,7 +3722,7 @@ a.prod__inner {
 @media (max-width: 639px) {
 	.nav__simple {
 		position: relative !important;
-		padding-left: 10px;
+		padding-left: 20px;
 	}
 	.booking__waiting {
 		position: absolute;
