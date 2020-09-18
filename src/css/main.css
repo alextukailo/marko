@@ -1877,6 +1877,12 @@ a .point__phone:hover {
 	border: none !important;
 }
 
+@media(max-width: 530px) {
+	.color-box__item:hover {
+		transform: none;
+	}
+}
+
 .color-box__item.active {
 	border: 2px solid #ee1c25;
 }
