@@ -38,13 +38,16 @@ function getVals() {
   
 
 function zoom(e) {
-	var zoomer = e.currentTarget;
-	e.offsetX ? (offsetX = e.offsetX) : (offsetX = e.touches[0].pageX);
-	e.offsetY ? (offsetY = e.offsetY) : (offsetX = e.touches[0].pageX);
-	x = (offsetX / zoomer.offsetWidth) * 100;
-	y = (offsetY / zoomer.offsetHeight) * 100;
-	zoomer.style.backgroundPosition = x + "% " + y + "%";
-  }
+	let zoomer = e.currentTarget;
+	let windowWidth = window.outerWidth;
+	if (windowWidth > 530) {
+		e.offsetX ? (offsetX = e.offsetX) : (offsetX = e.touches[0].pageX);
+		e.offsetY ? (offsetY = e.offsetY) : (offsetX = e.touches[0].pageX);
+		x = (offsetX / zoomer.offsetWidth) * 100;
+		y = (offsetY / zoomer.offsetHeight) * 100;
+		zoomer.style.backgroundPosition = x + "% " + y + "%";
+	}
+}
   
 
   let clearValue = () => {
@@ -62,8 +65,8 @@ function zoom(e) {
 		$('.select__clear').on('click', function () {
 			$('.select__input').removeAttr( "value" )
 		})
-}
-clearValue()
+	}
+	clearValue()
 
 //Select -> Options JS
 jQuery(($) => {
@@ -235,7 +238,13 @@ $(document).ready(function() {
 
 	var sync1 = $("#sync1");
 	var sync2 = $("#sync2");
-	var slidesPerPage = 5; //globaly define number of elements per page
+	let windowWidth = window.outerWidth;
+	if(windowWidth > 530) {
+		var slidesPerPage = 5; 
+	} else if (windowWidth < 530) {
+		var slidesPerPage = 4; 
+	}
+	
 	var syncedSecondary = true;
   
 	sync1.owlCarousel({

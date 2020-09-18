@@ -807,7 +807,21 @@ figure.zoom {
 	height: 420px;
     object-fit: cover;
   }
-  
+  #sync2 {
+	  display: block;
+  }
+  @media(max-width: 530px) {
+	.section__content {
+		padding: 20px 0;
+	}
+	#sync2 {
+		display: none;
+	}
+	figure.zoom img:hover {
+		opacity: 1;
+	}
+  }
+
   .rangeValues {
 	  font-size: 14px;
 	  margin-bottom: 10px;
@@ -1569,7 +1583,7 @@ a .point__phone:hover {
 	.product__heading {
 		font-size: 24px !important;
 		font-style: normal;
-		margin-bottom: 5px !important;
+		margin-bottom: 20px !important;
 	}
 	.product__side {
 		width: 100%;
@@ -2083,15 +2097,15 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 639px) {
 	.product__item_images {
-		width: 60%;
+		width: 100%;
 	}
 	.product__item_description {
 		width: 100%;
 	}
 	#sync1 {
-		top: -30px;
+		top: 0px;
 		left: 50% !important;
-		transform: translateX(-20%) !important;
+		transform: translateX(-50%) !important;
 		margin: 0 !important;
 	}
 	#sync2.owl-carousel {
@@ -2829,7 +2843,19 @@ input[type="text"].error:not([disabled]).placeholder, input[type="password"].err
 	margin: 0 0 3rem;
 }
 
+.mobile {
+	display: none;
+}
+.desctop {
+	display: block;
+}
 @media (max-width: 639px) {
+	.mobile {
+		display: block;
+	}
+	.desctop {
+		display: none;
+	}
 	.user-content select, .select {
 		margin: 0 0 2rem;
 	}
