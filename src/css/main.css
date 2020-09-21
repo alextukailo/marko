@@ -1931,7 +1931,11 @@ a .point__phone:hover {
     border: 0 solid #303030;
     margin: -1.5rem -1rem;
 }
-
+.buy__button {
+	display: flex;
+	justify-content: center;
+	margin: 20px auto;
+}
 .product__color {
 	margin: 20px 0 10px 0;
 }
