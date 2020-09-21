@@ -483,8 +483,64 @@ table {
 	color: #b2b2b2;
 }
 
+.middleware a {
+	color: #ff0202;
+}
+
+.review__item {
+	display: flex;
+	margin-bottom: 40px;
+}
+
+.review__item:last-child {
+	margin-bottom: 0;
+}
+
+.review__ava {
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ff0202;
+    color: #ffffff;
+	text-align: center;
+	padding: 10px;
+	margin-right: 15px;
+}
+
+.review__name {
+	font-size: 16px;
+	font-weight: 600;
+	margin-right: 20px;
+}
+
+.review__date {
+	font-size: 16px;
+	font-weight: 500;
+	color: #8b8b8b;
+}
+
+.review__heading {
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.review__text {
+	margin-bottom: 20px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.review__text p {
+	margin-bottom: 0px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.review__info {}
 
 .button {
+	display: block;
 	border: none;
     font-family: "akrobat-bold", Helvetica, Arial, sans-serif;
     font-weight: normal;
@@ -503,6 +559,11 @@ table {
 	background-color: #fff;
 	color: #000000;
 	text-decoration: none;
+}
+
+.button_ghost-red:hover {
+	background-color: #ee1c25;
+	color: #FFFFFF;
 }
 
 .button_red {
@@ -1950,6 +2011,7 @@ a .point__phone:hover {
 }
 .product__button {
 	max-width: 400px;
+	width: 100%;
 	margin-bottom: 30px !important;
 }
 .product__size_item.disabled {
