@@ -1339,6 +1339,9 @@ figure.zoom {
 }
 
 .sidebar__checkbox label {
+	display: flex;
+    align-items: center;
+    font-size: 15px;
 	margin-left: 5px;
 	cursor: pointer;
 }
@@ -1954,6 +1957,20 @@ a .point__phone:hover {
 	position: relative;
 	width: 50px;
 	height: 50px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: transform 0.2s ease-out;
+	z-index: 1;
+	overflow: hidden;
+	border: 2px solid transparent;
+}
+
+.color-box__item_sm {
+	position: relative;
+	width: 15px;
+	height: 15px;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	cursor: pointer;
