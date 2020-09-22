@@ -1470,6 +1470,12 @@ figure.zoom {
 	width: 50%;
 }
 
+@media(max-width: 530px) {
+	.prod__wrap a {
+		width: 100%;
+	}
+}
+
 .prod__desc span{
 	font-size: 16px;
 }
