@@ -720,7 +720,25 @@
 								</div>
 								<div class="page__review review">
 									<h3 class="product__subheading">Отзывы</h3>
-									<p class="middleware">Для написания отзыва необходимо <a href="auth.html">авторизоваться</a> на сайте.</p>
+                                    <p class="middleware">Для написания отзыва необходимо <a href="auth.html">авторизоваться</a> на сайте.</p>
+                                    <button class="show-review review__button button button_red">Оставить отзыв</button>
+                                    <form class="review__form" style="display: none;">
+                                        <h3 class="product__subheading">Оставить отзыв</h3>
+                                        <div class="greyStars">
+                                            <i class="review__mark fa fa-star" aria-hidden="true"></i>
+                                            <i class="review__mark fa fa-star" aria-hidden="true"></i>
+                                            <i class="review__mark fa fa-star" aria-hidden="true"></i>
+                                            <i class="review__mark fa fa-star" aria-hidden="true"></i>
+                                            <i class="review__mark fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="review__text">
+                                            <input type="text" required placeholder="ФИО" name="owner-name">
+                                        </div>
+                                        <div class="review__text">
+                                            <textarea name="owner-text" required placeholder="Текст отзыва" id="" cols="50" rows="10"></textarea>
+                                        </div>
+                                        <button class="review__button button button_red" type="submit">Отправить</button>
+                                    </form>
 									<div class="review__item">
 										<div class="review__ava">IP</div>
 										<div class="review__info">

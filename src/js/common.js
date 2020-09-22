@@ -53,7 +53,22 @@ function zoom(e) {
 		zoomer.style.backgroundPosition = x + "% " + y + "%";
 	}
 }
-  
+  let notifyShow = () => {
+	$(".prod__price").on('mouseover', function () {
+		$(this).children().css("display", "block");
+	  });
+	  $(".prod__price").on('mouseout', function () {
+		$(this).children().hide();
+	  });
+  }
+  notifyShow()
+
+  let showReview = () => {
+	$('.show-review').on('click', function () {
+		$(this).next().slideToggle()
+	})
+  }
+  showReview()
 
   let clearValue = () => {
 		$('.select__clear').on('click', function () {
