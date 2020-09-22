@@ -1460,6 +1460,16 @@ figure.zoom {
 	border-bottom: 1px solid #e6e6e6; 
 }
 
+.prod__wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.prod__wrap a {
+	width: 50%;
+}
+
 .prod__desc span{
 	font-size: 16px;
 }
