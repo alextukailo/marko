@@ -1,4 +1,4 @@
-/*======================================================*/
+======================================================
 /* NORMALIZE AND RESET */
 /*======================================================*/
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
@@ -1946,6 +1946,7 @@ a .point__phone:hover {
 
 .color-box {
 	display: flex;
+	flex-wrap: wrap;
     margin-bottom: 30px;
 }
 
@@ -1963,16 +1964,16 @@ a .point__phone:hover {
 	border: 2px solid transparent;
 }
 
-.color-box__item figure.zoom img {
+.color-box__item img {
 	width: 50px;
 	height: 50px;
 	object-fit: cover;
 }
 
 .color-box__item:hover {
-	transform: translateX(50px) scale(3.0);
+	/* transform: translateX(50px) scale(3.0);
 	z-index: 9;
-	border: none !important;
+	border: none !important; */
 }
 
 @media(max-width: 530px) {
@@ -2177,6 +2178,7 @@ body {
 	color: #282828;
 	background: #f2f2f2 url(../img/empty.png) no-repeat left top fixed;
 	overflow-x: hidden;
+	/* display: none; */
 }
 
 body *::-moz-selection {
