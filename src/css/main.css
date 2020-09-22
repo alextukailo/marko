@@ -1972,7 +1972,6 @@ a .point__phone:hover {
 	width: 15px;
 	height: 15px;
 	margin-right: 5px;
-	margin-bottom: 5px;
 	cursor: pointer;
 	border-radius: 4px;
 	transition: transform 0.2s ease-out;
