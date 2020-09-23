@@ -4104,6 +4104,15 @@ a.prod__inner {
 	z-index: 5;
 }
 
+.archive {
+	display: flex;
+	margin-left: 150px;
+}
+
+.archive a, .archive div {
+	margin-right: 5px;
+}
+
 .prod__discount {
 	display: none;
 	position: absolute;
@@ -4137,6 +4146,9 @@ a.prod__inner {
 }
 
 @media (max-width: 639px) {
+	.archive {
+		margin-left: 0px;
+	}
 	.prod__foot {
 		padding-bottom: 15px;
 		bottom: auto;
