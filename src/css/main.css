@@ -781,7 +781,22 @@ table {
 .news__item .news-slider__item__inner img{
 	width: 100%;
 }
-
+.print {
+	display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;
+    background: url(http://www.marko.by/public/i/print.png) no-repeat 0 1px;
+    font: 12px/16px 'Verdana';
+    color: #333;
+    margin: 30px 0 30px 150px;
+    padding: 0 0 0 22px;
+}
+@media(max-width: 530px) {
+	.print {
+		margin: 30px 0;
+	}
+}
 .news__heading {
 	margin: 40px 0 20px 0;
 	color: #b2b2b2;
@@ -4095,7 +4110,7 @@ a.prod__inner {
 	bottom: 140px;
 	/* left: 50%;
 	transform: translateX(-50%); */
-	background: #b2b2b2;
+	background: #ffffff;
 	z-index: 99999;
 	padding: 15px;
 	border-radius: 4px;
@@ -4110,7 +4125,7 @@ a.prod__inner {
 	margin-bottom: 10px;
 	font-size: 18px;
 	font-weight: 600;
-	color: #ffffff;
+	color: #000;
 	
 }
 
