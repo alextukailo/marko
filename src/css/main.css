@@ -1417,7 +1417,9 @@ figure.zoom {
 	
 	padding-right: 10px;
 }
-
+.upperstuff_sm {
+	color: #fff !important;
+}
 .brand__list {
 	display: flex;
 	flex-wrap: wrap;
@@ -1465,14 +1467,27 @@ figure.zoom {
 
 .brand__image {
 	display: block;
-	max-width: 400px;
+	max-width: 350px;
 }
 
 .brand__image_source {
 	display: block;
     width: 350px;
     height: 270px;
-    object-fit: contain;
+	object-fit: contain;
+	-webkit-transition: all .3s linear;
+	transition: all .3s linear;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.brand__image_source:hover {
+	-webkit-filter: brightness(80%);
+    filter: brightness(80%);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+	will-change: transform;
+	border-radius: 4px;
 }
 
 .brand__heading {
@@ -2074,6 +2089,12 @@ a .point__phone:hover {
 
 .color-box__item_brown {
 	background: brown;
+}
+.color-box__item_violet {
+	background: violet;
+}
+.color-box__item_bordo {
+	background: #69010F;
 }
 
 .product__size_items {
@@ -3899,6 +3920,7 @@ a.prod__inner {
 }
 
 .prod__body {
+	position: relative;
 	height: 100%;
 	display: -ms-flexbox;
 	display: flex;
@@ -4009,10 +4031,11 @@ a.prod__inner {
 .prod__discount {
 	display: none;
 	position: absolute;
-	top: -170px;
-	right: 0;
+	bottom: 140px;
+	/* left: 50%;
+	transform: translateX(-50%); */
 	background: #b2b2b2;
-	z-index: 999;
+	z-index: 99999;
 	padding: 15px;
 	border-radius: 4px;
 	box-shadow: 0 0 20px rgba(0,0,0,.10);

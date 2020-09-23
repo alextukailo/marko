@@ -54,10 +54,10 @@ function zoom(e) {
 	}
 }
   let notifyShow = () => {
-	$(".prod__price").on('mouseover', function () {
+	$(".prod__body").on('mouseover', function () {
 		$(this).children().css("display", "block");
 	  });
-	  $(".prod__price").on('mouseout', function () {
+	  $(".prod__body").on('mouseout', function () {
 		$(this).children().hide();
 	  });
   }
