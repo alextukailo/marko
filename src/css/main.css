@@ -788,6 +788,7 @@ table {
 }
 .news__heading_sm {
 	display: block;
+	font-size: 30px !important;
 	text-align: center;
 }
 
