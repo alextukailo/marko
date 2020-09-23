@@ -770,7 +770,11 @@ table {
 .news-single {
 	display: block;
 	margin: 0 auto;
-	max-width: 900px;
+	max-width: 1000px;
+}
+
+.news-single__slider {
+	margin: 120px 0 !important;
 }
 
 .news-single figure {
