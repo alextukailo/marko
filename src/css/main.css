@@ -770,6 +770,7 @@ table {
 @media(max-width: 530px) {
 	.news__item {
 		width: 100%;
+		margin: 20px 10px;
 	}
 }
 
