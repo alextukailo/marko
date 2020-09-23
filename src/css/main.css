@@ -758,6 +758,29 @@ table {
 	font-size: 1.7rem;
 }
 
+.news {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.news__item {
+	width: 21.9%;
+	margin: 20px;
+}
+@media(max-width: 530px) {
+	.news__item {
+		width: 100%;
+	}
+}
+
+.news__item .news-slider__item__inner {
+	width: 100%;
+}
+
+.news__item .news-slider__item__inner img{
+	width: 100%;
+}
+
 .news__heading {
 	margin: 40px 0 20px 0;
 	color: #b2b2b2;
