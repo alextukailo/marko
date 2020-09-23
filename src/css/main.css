@@ -1424,6 +1424,19 @@ figure.zoom {
 	max-width: 170px;
 }
 
+.category__items {
+	display: flex;
+	/* flex-wrap: wrap; */
+}
+
+.popular.category__item a {
+	color: #ee1c25;
+}
+
+.popular.category__item a:hover {
+	color: #ffffff;
+}
+
 .category__item {
 	font-size: 14px;
 	width: 255px;
@@ -1491,6 +1504,16 @@ figure.zoom {
 }
 
 @media(max-width: 530px) {
+	.category__items {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.category__item_all {
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
+
 	.prod__wrap a {
 		width: 100%;
 	}
