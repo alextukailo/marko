@@ -124,6 +124,13 @@ sup {
 	top: -0.5em;
 }
 
+time {
+	display: block;
+	color: #b2b2b2;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
 audio,
 video {
 	display: inline-block;
@@ -753,6 +760,15 @@ table {
 .news__heading {
 	margin: 40px 0 20px 0;
 	color: #b2b2b2;
+}
+.news__heading_sm {
+	display: block;
+	text-align: center;
+}
+
+.news-single figure {
+	display: flex;
+	justify-content: center;
 }
 
 .news__body {
